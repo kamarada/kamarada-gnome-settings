@@ -6,12 +6,13 @@ _branch=18.0
 _oldbranch=17.0
 pkgname=(manjaro-gnome-settings-$_branch manjaro-gnome-extension-settings-$_branch)
 #          'manjaro-gnome-minimal-settings')
-pkgver=20180528
-pkgrel=2
+pkgver=20180614
+pkgrel=1
 arch=('any')
-url="https://github.com/manjaro/manjaro-gnome-settings"
+url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
-source=(manjaro-gnome-settings::git+$url.git#branch=$_branch
+source=("manjaro-gnome-settings::git+$url.git#branch=$_branch"
+		'logo::git+https://gitlab.manjaro.org/artwork/branding/logo.git'
 		'disable-gdm-night-light.hook'
 		'disable-gdm-night-light.script'
 		'manjaro-gnome-messages.hook'
@@ -20,10 +21,11 @@ source=(manjaro-gnome-settings::git+$url.git#branch=$_branch
 		'manjaro-extensions.script')
 makedepends=('git')
 sha256sums=('SKIP'
+            'SKIP'
             '430c34abc34b7016eb649dafb4580223bc48d3131a01dd1b1c017dcb8b9d290c'
             'b88f69aafc874428d2638c342f3532c7570aa9979f43354bdb66accdfb3b0986'
             '746a179ac4aa716e151253c90cd9e2f897710fdcbb0e6ad0641327db46c33189'
-            '248e34d9a3c11206c318dff3ac12b3bda92b1b3deba7c8f0d527e12373f43531'
+            '9dded6c9e7fdacdd97efe4719fe008ac8077d3ebe48fef6db62e7c5110c1e468'
             '4e17fac482415309fddf61de1ae67e25e1646f61dc5596bfe760011dcc5c9dbd'
             '45ddcda03b504a9f7ab8ab8795b6187d8467ab37b2bd722c9515fcfa3a5fb7c1')
 
@@ -60,7 +62,7 @@ optdepends=('plymouth-theme-manjaro-gnome-17.0: Plymouth theme'
 conflicts=("manjaro-gnome-settings" "manjaro-gnome-settings-$_branch" "manjaro-gnome-settings-$_oldbranch")
 replaces=("manjaro-gnome-settings")
 provides=("manjaro-desktop-settings")
-#backup=('etc/gdm/PostLogin/Default')
+backup=('etc/gdm/PostLogin/Default')
 
 	_inst_dir
 	
@@ -75,6 +77,8 @@ provides=("manjaro-desktop-settings")
 	
 	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gnome-messages.hook
 	install -Dm755 ${srcdir}/manjaro-gnome-messages.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
+	install -Dm644 ${srcdir}/logo/logo_text_wide.png ${pkgdir}/usr/share/icons/manjaro/maia/logo_text_wide.png
+
 }
 
 
@@ -88,6 +92,8 @@ replaces=('manjaro-gnome-extension-settings')
 	_inst_dir-extension	
 	install -Dm644 ${srcdir}/manjaro-extensions.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-extensions.hook	
 	install -Dm755 ${srcdir}/manjaro-extensions.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-extensions
+	#install -Dm644 
+	
 }
 
 # package_manjaro-gnome-minimal-settings() {

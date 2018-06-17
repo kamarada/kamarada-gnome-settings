@@ -6,8 +6,8 @@ _branch=18.0
 _oldbranch=17.0
 pkgname=(manjaro-gnome-settings-$_branch manjaro-gnome-extension-settings-$_branch)
 #          'manjaro-gnome-minimal-settings')
-pkgver=20180615
-pkgrel=1
+pkgver=20180617
+pkgrel=2
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -77,7 +77,7 @@ backup=('etc/gdm/PostLogin/Default')
 	
 	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gnome-messages.hook
 	install -Dm755 ${srcdir}/manjaro-gnome-messages.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
-	install -Dm644 ${srcdir}/logo/logo_text_wide.png ${pkgdir}/usr/share/icons/manjaro/maia/logo_text_wide.png
+	install -Dm644 ${srcdir}/logo/logo_text_white.png ${pkgdir}/usr/share/icons/manjaro/maia/logo_text_white.png 
 
 }
 
@@ -92,7 +92,6 @@ replaces=('manjaro-gnome-extension-settings')
 	_inst_dir-extension	
 	install -Dm644 ${srcdir}/manjaro-extensions.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-extensions.hook	
 	install -Dm755 ${srcdir}/manjaro-extensions.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-extensions
-	#install -Dm644 
 	
 }
 

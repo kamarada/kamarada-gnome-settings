@@ -4,10 +4,10 @@
 pkgbase=manjaro-gnome-settings
 _branch=18.0
 _oldbranch=17.0
-pkgname=(manjaro-gnome-settings-$_branch manjaro-gnome-extension-settings-$_branch)
+pkgname=("manjaro-gnome-settings-$_branch" "manjaro-gnome-extension-settings-$_branch" 'manjaro-gdm-branding')
 #          'manjaro-gnome-minimal-settings')
-pkgver=20180617
-pkgrel=2
+pkgver=20180620
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -18,7 +18,9 @@ source=("manjaro-gnome-settings::git+$url.git#branch=$_branch"
 		'manjaro-gnome-messages.hook'
 		'manjaro-gnome-messages.script'
 		'manjaro-extensions.hook'
-		'manjaro-extensions.script')
+		'manjaro-extensions.script'
+		'manjaro-gdm-branding-install.hook'
+		'manjaro-gdm-branding-remove.hook')
 makedepends=('git')
 sha256sums=('SKIP'
             'SKIP'
@@ -27,7 +29,9 @@ sha256sums=('SKIP'
             '746a179ac4aa716e151253c90cd9e2f897710fdcbb0e6ad0641327db46c33189'
             '9dded6c9e7fdacdd97efe4719fe008ac8077d3ebe48fef6db62e7c5110c1e468'
             '4e17fac482415309fddf61de1ae67e25e1646f61dc5596bfe760011dcc5c9dbd'
-            '45ddcda03b504a9f7ab8ab8795b6187d8467ab37b2bd722c9515fcfa3a5fb7c1')
+            '45ddcda03b504a9f7ab8ab8795b6187d8467ab37b2bd722c9515fcfa3a5fb7c1'
+            '0cbc94f374e8cf2ae774d251638b5de94cad26dcf2cd678bf9e0bc798e3de139'
+            'ba6e3a0cea8ae3875efe9bc8eefc4bcb5b8d54492a13e0d7cc06e05f25be8e42')
 
 _inst_dir(){
 	install -d $pkgdir/etc
@@ -77,8 +81,7 @@ backup=('etc/gdm/PostLogin/Default')
 	
 	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gnome-messages.hook
 	install -Dm755 ${srcdir}/manjaro-gnome-messages.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
-	install -Dm644 ${srcdir}/logo/logo_text_white.png ${pkgdir}/usr/share/icons/manjaro/maia/logo_text_white.png 
-
+	 
 }
 
 
@@ -92,6 +95,20 @@ replaces=('manjaro-gnome-extension-settings')
 	_inst_dir-extension	
 	install -Dm644 ${srcdir}/manjaro-extensions.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-extensions.hook	
 	install -Dm755 ${srcdir}/manjaro-extensions.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-extensions
+	
+}
+
+package_manjaro-gdm-branding() {
+
+pkgdesc="Manjaro GDM branding"
+depends=('gnome-shell' 'dconf')
+
+	install -Dm644 ${srcdir}/${pkgbase}/schemas/gdm ${pkgdir}/etc/dconf/profile/gdm
+	install -Dm644 ${srcdir}/${pkgbase}/schemas/10_manjaro-gdm-branding ${pkgdir}/etc/dconf/db/gdm.d/10_manjaro-gdm-branding
+
+	install -Dm644 ${srcdir}/logo/logo_text_white.png ${pkgdir}/usr/share/icons/manjaro/maia/logo_text_white.png
+	install -Dm644 ${srcdir}/manjaro-gdm-branding-install.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gdm-branding-install.hook
+	install -Dm644 ${srcdir}/manjaro-gdm-branding-remove.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gdm-branding-remove.hook
 	
 }
 

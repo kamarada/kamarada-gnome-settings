@@ -27,12 +27,19 @@ depends=("manjaro-gnome-settings-$_branch"
         'ttf-hack'
         'noto-fonts-compat'
         'kvantum-manjaro'
-        'papirus-maia-icon-theme')
+        'papirus-maia-icon-theme'
+        'manjaro-gdm-branding')
 optdepends=('manjaro-gnome-maia-theme: Branding theme for GDM'
 			'lighter-gnome: some gnome-settings-daemon components')
 
 pkgver() {
     date +%Y%m%d
 }
+
+
+
+
+
+
 
 

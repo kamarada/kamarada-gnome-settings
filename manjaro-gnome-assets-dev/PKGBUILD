@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets-dev
-pkgver=20180621
+pkgver=20180820
 pkgrel=1
 _branch=18.0
 url="www.manjaro.org"
@@ -31,10 +31,12 @@ depends=("manjaro-gnome-settings-$_branch"
         'manjaro-gdm-branding')
 optdepends=('manjaro-gnome-maia-theme: Branding theme for GDM'
 			'lighter-gnome: some gnome-settings-daemon components')
+conflicts=('manjaro-gnome-assets')
 
 pkgver() {
     date +%Y%m%d
 }
+
 
 
 

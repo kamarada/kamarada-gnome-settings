@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets-dev
-pkgver=20180820
+pkgver=20181011
 pkgrel=1
 _branch=18.0
 url="www.manjaro.org"
@@ -19,14 +19,14 @@ depends=("manjaro-gnome-settings-$_branch"
 		'gnome-shell-extension-appindicator'
 		'chrome-gnome-shell'
         'gnome-wallpapers'
-        'adapta-maia-theme'
+        'arc-themes-maia'
         'xcursor-breeze'
         'manjaro-base-skel'
         'qt5-styleplugins'
         'qt5ct'
         'ttf-hack'
         'noto-fonts-compat'
-        'kvantum-manjaro'
+       # 'kvantum-manjaro'
         'papirus-maia-icon-theme'
         'manjaro-gdm-branding')
 optdepends=('manjaro-gnome-maia-theme: Branding theme for GDM'
@@ -36,6 +36,7 @@ conflicts=('manjaro-gnome-assets')
 pkgver() {
     date +%Y%m%d
 }
+
 
 
 

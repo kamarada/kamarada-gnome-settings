@@ -6,7 +6,7 @@ _branch=18.0
 _oldbranch=17.0
 pkgname=("manjaro-gnome-settings-$_branch" "manjaro-gnome-extension-settings-$_branch" 'manjaro-gdm-branding')
 #          'manjaro-gnome-minimal-settings')
-pkgver=20180925
+pkgver=20181011
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -59,8 +59,7 @@ pkgver() {
 package_manjaro-gnome-settings-18.0() {
 pkgdesc="Manjaro Linux Gnome settings v$_branch"
 
-optdepends=('plymouth-theme-manjaro-gnome-17.0: Plymouth theme'
-			'manjaro-gnome-maia-theme: Branding theme for Gdm and Dash to Dock'
+optdepends=('manjaro-gdm-theme: Branding theme for Gdm'
 			'lighter-gnome: some gnome-settings-daemon components'
 			'papirus-maia-icon-theme: default icons set')
 conflicts=("manjaro-gnome-settings" "manjaro-gnome-settings-$_branch" "manjaro-gnome-settings-$_oldbranch")

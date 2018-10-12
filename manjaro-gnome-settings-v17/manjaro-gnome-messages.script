@@ -23,16 +23,3 @@ else
 	 -> or install manjaro-printer pkg via pamac"
    echo ""
 fi
-
-## Revert backupped Default file into /etc/gdm/PostLogin folder
-
-#if [[ -f /etc/gdm/PostLogin/Default.pacsave ]]; then
-#	cp -f /etc/gdm/PostLogin/Default.pacsave /etc/gdm/PostLogin/Default
-#	echo ""
-#	msg "Your settings into /etc/gdm/PostLogin/Default are restored"
-#	echo ""
-#fi
-	
-
-
-

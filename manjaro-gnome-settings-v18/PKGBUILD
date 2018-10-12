@@ -6,8 +6,8 @@ _branch=18.0
 _oldbranch=17.0
 pkgname=("manjaro-gnome-settings-$_branch" "manjaro-gnome-extension-settings-$_branch" 'manjaro-gdm-branding')
 #          'manjaro-gnome-minimal-settings')
-pkgver=20181011
-pkgrel=2
+pkgver=20181012
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -27,7 +27,7 @@ sha256sums=('SKIP'
             '430c34abc34b7016eb649dafb4580223bc48d3131a01dd1b1c017dcb8b9d290c'
             'b88f69aafc874428d2638c342f3532c7570aa9979f43354bdb66accdfb3b0986'
             '746a179ac4aa716e151253c90cd9e2f897710fdcbb0e6ad0641327db46c33189'
-            '248e34d9a3c11206c318dff3ac12b3bda92b1b3deba7c8f0d527e12373f43531'
+            'c2494896d040291975b20aee5dfdd4b0370bf26a7d93a840a62817f32550fc7c'
             '4e17fac482415309fddf61de1ae67e25e1646f61dc5596bfe760011dcc5c9dbd'
             '45ddcda03b504a9f7ab8ab8795b6187d8467ab37b2bd722c9515fcfa3a5fb7c1'
             '0cbc94f374e8cf2ae774d251638b5de94cad26dcf2cd678bf9e0bc798e3de139'
@@ -65,7 +65,6 @@ optdepends=('manjaro-gdm-theme: Branding theme for Gdm'
 conflicts=("manjaro-gnome-settings" "manjaro-gnome-settings-$_branch" "manjaro-gnome-settings-$_oldbranch")
 replaces=("manjaro-gnome-settings")
 provides=("manjaro-desktop-settings")
-backup=('etc/gdm/PostLogin/Default')
 
 	_inst_dir
 	

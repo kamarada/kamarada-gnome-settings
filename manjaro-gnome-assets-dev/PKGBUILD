@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets-dev
-pkgver=20181017
+pkgver=20181025
 pkgrel=1
 _branch=18.0
 url="www.manjaro.org"
@@ -19,7 +19,7 @@ depends=("manjaro-gnome-settings-$_branch"
 		'gnome-shell-extension-appindicator'
 		'chrome-gnome-shell'
         'gnome-wallpapers'
-        'arc-themes-maia'
+        'adapta-maia-theme'
         'xcursor-breeze'
         'manjaro-base-skel'
         'qt5-styleplugins'
@@ -38,6 +38,7 @@ conflicts=('manjaro-gnome-assets')
 pkgver() {
     date +%Y%m%d
 }
+
 
 
 

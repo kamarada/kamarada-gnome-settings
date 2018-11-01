@@ -1,9 +1,9 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
-pkgver=20180424
+pkgver=20181101
 pkgrel=1
-_branch=17.0
+_branch=18.0
 url="www.manjaro.org"
 license=('GPL')
 pkgdesc="Manjaro Gnome assets"
@@ -27,11 +27,21 @@ depends=("manjaro-gnome-settings-$_branch"
         'ttf-hack'
         'noto-fonts-compat'
         'kvantum-manjaro'
-        'papirus-maia-icon-theme')
-optdepends=('manjaro-gnome-maia-theme: Branding theme for GDM'
-			'lighter-gnome: some gnome-settings-daemon components')
+        'papirus-maia-icon-theme'
+        'illyria-wallpaper'
+        'manjaro-wallpapers-18.0'
+        'manjaro-gdm-branding'
+        'manjaro-gdm-theme'
+        'gnome-shell-extension-manjaro-update'
+        'gnome-shell-extension-gsconnect')
+optdepends=('lighter-gnome: some gnome-settings-daemon components')
+conflicts=("$pkgname-dev")
+replaces=("$pkgname-dev")
+provides=("$pkgname-dev")
 
 pkgver() {
     date +%Y%m%d
 }
+
+
 

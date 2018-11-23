@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets-dev
-pkgver=20181025
+pkgver=20181123
 pkgrel=1
 _branch=18.0
 url="www.manjaro.org"
@@ -30,7 +30,7 @@ depends=("manjaro-gnome-settings-$_branch"
         'papirus-maia-icon-theme'
         'manjaro-gdm-branding'
         'manjaro-gdm-theme'
-        'gnome-shell-extension-manjaro-update'
+        'pamac'
         'gnome-shell-extension-gsconnect')
 optdepends=('lighter-gnome: some gnome-settings-daemon components')
 conflicts=('manjaro-gnome-assets')

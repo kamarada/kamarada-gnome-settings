@@ -2,7 +2,7 @@
 
 pkgname=manjaro-gnome-assets-dev
 pkgver=20181124
-pkgrel=1
+pkgrel=2
 _branch=18.0
 url="www.manjaro.org"
 license=('GPL')
@@ -30,7 +30,6 @@ depends=("manjaro-gnome-settings-$_branch"
         'papirus-maia-icon-theme'
         'manjaro-gdm-branding'
         'manjaro-gdm-theme'
-        'pamac'
         'gnome-shell-extension-gsconnect')
 optdepends=('lighter-gnome: some gnome-settings-daemon components')
 conflicts=('manjaro-gnome-assets')
@@ -38,6 +37,8 @@ conflicts=('manjaro-gnome-assets')
 pkgver() {
     date +%Y%m%d
 }
+
+
 
 
 

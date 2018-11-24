@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
-pkgver=20181101
+pkgver=20181124
 pkgrel=1
 _branch=18.0
 url="www.manjaro.org"
@@ -36,12 +36,13 @@ depends=("manjaro-gnome-settings-$_branch"
         'gnome-shell-extension-gsconnect')
 optdepends=('lighter-gnome: some gnome-settings-daemon components')
 conflicts=("$pkgname-dev")
-replaces=("$pkgname-dev")
-provides=("$pkgname-dev")
+#replaces=("$pkgname-dev")
+#provides=("$pkgname-dev")
 
 pkgver() {
     date +%Y%m%d
 }
+
 
 
 

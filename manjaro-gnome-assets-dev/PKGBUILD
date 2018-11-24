@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets-dev
-pkgver=20181123
+pkgver=20181124
 pkgrel=1
 _branch=18.0
 url="www.manjaro.org"
@@ -38,6 +38,7 @@ conflicts=('manjaro-gnome-assets')
 pkgver() {
     date +%Y%m%d
 }
+
 
 
 

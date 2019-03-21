@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
-pkgver=20181128
+pkgver=20190321
 pkgrel=1
 _branch=18.0
 url="www.manjaro.org"
@@ -11,7 +11,6 @@ arch=('any')
 depends=("manjaro-gnome-settings-$_branch"
 		"manjaro-gnome-extension-settings-$_branch"
 		'gnome-shell'
-		'gnome-shell-extension-taskbar'
        	'gnome-shell-extensions'
 	    'gnome-shell-extension-openweather'
 	    'gnome-shell-extension-arc-menu'
@@ -43,6 +42,8 @@ conflicts=("$pkgname-dev")
 pkgver() {
     date +%Y%m%d
 }
+
+
 
 
 

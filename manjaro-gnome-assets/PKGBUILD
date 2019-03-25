@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
-pkgver=20190321
+pkgver=20190325
 pkgrel=1
 _branch=18.0
 url="www.manjaro.org"
@@ -24,7 +24,6 @@ depends=("manjaro-gnome-settings-$_branch"
         'qt5-styleplugins'
         'qt5ct'
         'ttf-hack'
-        'noto-fonts-compat'
         'kvantum-manjaro'
         'papirus-maia-icon-theme'
         'illyria-wallpaper'
@@ -34,14 +33,14 @@ depends=("manjaro-gnome-settings-$_branch"
         'gnome-shell-extension-gsconnect'
         'gnome-shell-extension-appfolders-manager-dev'
         'gnome-shell-extension-desktop-icons')
-optdepends=('lighter-gnome: some gnome-settings-daemon components')
+optdepends=('lighter-gnome: some gnome-settings-daemon components'
+			'noto-fonts-compat')
 conflicts=("$pkgname-dev")
-#replaces=("$pkgname-dev")
-#provides=("$pkgname-dev")
 
 pkgver() {
     date +%Y%m%d
 }
+
 
 
 

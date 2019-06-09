@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
-pkgver=20190430
+pkgver=20190609
 pkgrel=1
 _branch=18.0
 url="www.manjaro.org"
@@ -28,7 +28,7 @@ depends=("manjaro-gnome-settings-$_branch"
         'qt5-styleplugins'
         'qt5ct'
         'ttf-hack'
-        'kvantum-manjaro'
+        'kvantum-theme-matcha'
         'papirus-maia-icon-theme'
         'illyria-wallpaper'
         'manjaro-wallpapers-18.0'

@@ -6,8 +6,8 @@ _branch=18.0
 _oldbranch=17.0
 pkgname=("manjaro-gnome-settings-$_branch" "manjaro-gnome-extension-settings-$_branch" 'manjaro-gdm-branding')
 #          'manjaro-gnome-minimal-settings')
-pkgver=20191024
-pkgrel=1
+pkgver=20191025
+pkgrel=2
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')

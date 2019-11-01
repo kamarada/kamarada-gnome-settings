@@ -1,0 +1,59 @@
+# Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
+
+pkgname=manjaro-gnome-assets-$_branch
+pkgver=20191020
+pkgrel=1
+_branch=19.0
+url="www.manjaro.org"
+license=('GPL')
+pkgdesc="Manjaro Gnome assets"
+arch=('any')
+depends=("manjaro-gnome-settings-$_branch"
+        "manjaro-gnome-extension-settings-$_branch"
+        'gnome-shell'
+        'gnome-shell-extensions'
+        'gnome-shell-extension-openweather'
+        'gnome-shell-extension-arc-menu'
+        'gnome-shell-extension-dash-to-dock'
+        'gnome-shell-extension-appindicator'
+        'gnome-shell-extension-dash-to-panel'
+        'gnome-shell-extension-gsconnect'
+        'gnome-shell-extension-appfolders-manager'
+        'gnome-shell-extension-desktop-icons'	
+        'chrome-gnome-shell'
+        'gnome-wallpapers'
+        'matcha-gtk-theme'
+        'xcursor-breeze'
+        'manjaro-base-skel'
+        'qt5-styleplugins'
+        'qt5ct'
+        'ttf-hack'
+        'kvantum-theme-matchama'
+        'papirus-maia-icon-theme'
+        'illyria-wallpaper'
+        'manjaro-wallpapers-18.0'
+        'manjaro-gdm-branding'
+        'manjaro-gdm-theme'
+)
+optdepends=('lighter-gnome: some gnome-settings-daemon components'
+			'noto-fonts-compat')
+conflicts=("$pkgname")
+
+pkgver() {
+    date +%Y%m%d
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

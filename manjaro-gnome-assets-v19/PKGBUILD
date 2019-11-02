@@ -1,9 +1,9 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
-pkgname=manjaro-gnome-assets-$_branch
-pkgver=20191020
-pkgrel=1
 _branch=19.0
+pkgname=("manjaro-gnome-assets-$_branch")
+pkgver=20191102
+pkgrel=1
 url="www.manjaro.org"
 license=('GPL')
 pkgdesc="Manjaro Gnome assets"
@@ -42,6 +42,12 @@ conflicts=("$pkgname")
 pkgver() {
     date +%Y%m%d
 }
+
+
+
+
+
+
 
 
 

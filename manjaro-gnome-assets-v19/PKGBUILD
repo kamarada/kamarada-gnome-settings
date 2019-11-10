@@ -2,7 +2,7 @@
 
 _branch=19.0
 pkgname=("manjaro-gnome-assets-$_branch")
-pkgver=20191102
+pkgver=20191110
 pkgrel=1
 url="www.manjaro.org"
 license=('GPL')
@@ -33,7 +33,7 @@ depends=("manjaro-gnome-settings-$_branch"
         'illyria-wallpaper'
         'manjaro-wallpapers-18.0'
         'manjaro-gdm-branding'
-        'manjaro-gdm-theme'
+        'manjaro-gdm-theme-dev'
 )
 optdepends=('lighter-gnome: some gnome-settings-daemon components'
 			'noto-fonts-compat')
@@ -42,6 +42,8 @@ conflicts=("$pkgname")
 pkgver() {
     date +%Y%m%d
 }
+
+
 
 
 

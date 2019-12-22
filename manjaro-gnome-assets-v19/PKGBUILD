@@ -2,7 +2,7 @@
 
 _branch=19.0
 pkgname=("manjaro-gnome-assets-$_branch")
-pkgver=20191110
+pkgver=20191222
 pkgrel=1
 url="www.manjaro.org"
 license=('GPL')
@@ -19,7 +19,8 @@ depends=("manjaro-gnome-settings-$_branch"
         'gnome-shell-extension-dash-to-panel'
         'gnome-shell-extension-gsconnect'
         'gnome-shell-extension-appfolders-manager'
-        'gnome-shell-extension-desktop-icons'	
+        'gnome-shell-extension-desktop-icons'
+        'gnome-shell-extension-unite'	
         'chrome-gnome-shell'
         'gnome-wallpapers'
         'matcha-gtk-theme'
@@ -42,6 +43,7 @@ conflicts=("$pkgname")
 pkgver() {
     date +%Y%m%d
 }
+
 
 
 

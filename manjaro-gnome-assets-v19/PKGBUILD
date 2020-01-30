@@ -2,7 +2,7 @@
 
 _branch=19.0
 pkgname=("manjaro-gnome-assets-$_branch")
-pkgver=20200129
+pkgver=20200130
 pkgrel=1
 url="www.manjaro.org"
 license=('GPL')
@@ -43,6 +43,7 @@ conflicts=("$pkgname")
 pkgver() {
     date +%Y%m%d
 }
+
 
 
 

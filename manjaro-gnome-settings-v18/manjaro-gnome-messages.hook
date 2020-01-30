@@ -5,6 +5,6 @@ Type = Package
 Target = manjaro-gnome-settings*
 
 [Action]
-Description = Collection of usefull script for Manjaro Gnome
+Description = Collection of usefull scripts for Manjaro Gnome
 When = PostTransaction
 Exec = /usr/share/libalpm/scripts/manjaro-gnome-messages

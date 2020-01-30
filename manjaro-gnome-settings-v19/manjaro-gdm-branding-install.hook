@@ -2,7 +2,7 @@
 Operation = Install
 Operation = Upgrade
 Type = Package
-Target = manjaro-gdm-branding
+Target = manjaro-gdm-branding*
 
 [Action]
 Description = Install Manjaro GDM Brand

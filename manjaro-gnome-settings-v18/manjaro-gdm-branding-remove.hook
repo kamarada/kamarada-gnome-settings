@@ -1,7 +1,7 @@
 [Trigger]
 Operation = Remove
 Type = Package
-Target = manjaro-gdm-branding
+Target = manjaro-gdm-branding*
 
 [Action]
 Description = Remove Manjaro GDM Brand

@@ -2,7 +2,7 @@
 
 _branch=19.0
 pkgname=("manjaro-gnome-assets-$_branch")
-pkgver=20191222
+pkgver=20200129
 pkgrel=1
 url="www.manjaro.org"
 license=('GPL')
@@ -19,7 +19,7 @@ depends=("manjaro-gnome-settings-$_branch"
         'gnome-shell-extension-dash-to-panel'
         'gnome-shell-extension-gsconnect'
         'gnome-shell-extension-appfolders-manager'
-        'gnome-shell-extension-desktop-icons'
+        'gnome-shell-extension-desktop-icons-ng'
         'gnome-shell-extension-unite'	
         'chrome-gnome-shell'
         'gnome-wallpapers'
@@ -34,7 +34,7 @@ depends=("manjaro-gnome-settings-$_branch"
         'illyria-wallpaper'
         'manjaro-wallpapers-18.0'
         'manjaro-gdm-branding'
-        'manjaro-gdm-theme-dev'
+        'manjaro-gdm-theme-19.0'
 )
 optdepends=('lighter-gnome: some gnome-settings-daemon components'
 			'noto-fonts-compat')
@@ -43,23 +43,6 @@ conflicts=("$pkgname")
 pkgver() {
     date +%Y%m%d
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

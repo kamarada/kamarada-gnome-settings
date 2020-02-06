@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ##Symple script to check if night-light is enable and if true inform user how remove
 

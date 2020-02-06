@@ -20,7 +20,8 @@ depends=("manjaro-gnome-settings-$_branch"
         'gnome-shell-extension-gsconnect'
         'gnome-shell-extension-appfolders-manager'
         'gnome-shell-extension-desktop-icons-ng'
-        'gnome-shell-extension-unite'	
+        'gnome-shell-extension-unite'
+        'gnome-shell-extension-gamemode'	
         'chrome-gnome-shell'
         'gnome-wallpapers'
         'matcha-gtk-theme'
@@ -43,6 +44,8 @@ conflicts=("$pkgname")
 pkgver() {
     date +%Y%m%d
 }
+
+
 
 
 

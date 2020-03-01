@@ -2,7 +2,7 @@
 
 _branch=19.0
 pkgname=("manjaro-gnome-assets-$_branch")
-pkgver=20200207
+pkgver=20200215
 pkgrel=1
 url="www.manjaro.org"
 license=('GPL')
@@ -18,7 +18,6 @@ depends=("manjaro-gnome-settings-$_branch"
         'gnome-shell-extension-appindicator'
         'gnome-shell-extension-dash-to-panel'
         'gnome-shell-extension-gsconnect'
-        'gnome-shell-extension-appfolders-manager'
         'gnome-shell-extension-desktop-icons-ng'
         'gnome-shell-extension-unite'
         'gnome-shell-extension-gamemode'	
@@ -44,6 +43,7 @@ conflicts=("$pkgname")
 pkgver() {
     date +%Y%m%d
 }
+
 
 
 

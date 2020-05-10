@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
-pkgver=20200425
+pkgver=20200510
 pkgrel=1
 _branch=19.0
 url="www.manjaro.org"
@@ -42,6 +42,7 @@ replaces=("$pkgname-$_branch")
 pkgver() {
     date +%Y%m%d
 }
+
 
 
 

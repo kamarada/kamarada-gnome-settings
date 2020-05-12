@@ -23,3 +23,23 @@ else
 	 -> or install manjaro-printer pkg via pamac"
    echo ""
 fi
+
+## Inform users about QT style changes
+
+if pacman -Qi qt5ct > /dev/null 2>&1; then
+   echo""
+   msg "We have switched into qgnomeplatform instead qt5ct so now 
+    -> qt5ct
+    -> qt5-styleplugins
+    are marked as orphans. If you want you can continue to use this two packages but
+    if you want use qgnomeplatform engine you need to modify your /etc/environment 
+    with this changes:
+    remove or comment this:
+    -> QT_QPA_PLATFORMTHEME="qt5ct"
+    add:
+    -> QT_AUTO_SCREEN_SCALE_FACTOR=1
+    -> QT_QPA_PLATFORMTHEME="gnome"
+    -> QT_STYLE_OVERRIDE="kvantum"
+    This is all"
+    echo""
+fi

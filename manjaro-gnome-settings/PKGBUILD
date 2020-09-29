@@ -1,5 +1,5 @@
-# Maintainer: Ramon Buldó <rbuldo@gmail.com>
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
+# Contributor: Ramon Buldó <rbuldo@gmail.com>
 
 pkgbase=manjaro-gnome-settings
 _branch=19.0
@@ -39,7 +39,7 @@ _inst_dir(){
 
 	install -d $pkgdir/usr/share/glib-2.0/schemas
 	cp $srcdir/$pkgbase/schemas/99_manjaro-settings.gschema.override $pkgdir/usr/share/glib-2.0/schemas
-	
+
 #Add appfolders set
 	install -Dm755 $srcdir/$pkgbase/scripts/manjaro-app-folders $pkgdir/usr/bin/manjaro-app-folders
 }
@@ -50,7 +50,7 @@ _inst_dir-extension(){
 
 	install -d $pkgdir/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
 	cp $srcdir/$pkgbase/schemas/10_dash-to-dock.gschema.override $pkgdir/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
-		
+
 	install -d $pkgdir/usr/share/gnome-shell/extensions/arc-menu@linxgem33.com/schemas
 	cp $srcdir/$pkgbase/schemas/10_arc-menu.gschema.override $pkgdir/usr/share/gnome-shell/extensions/arc-menu@linxgem33.com/schemas
 }
@@ -70,19 +70,19 @@ replaces=("manjaro-gnome-settings-$_branch")
 provides=("manjaro-desktop-settings")
 
 	_inst_dir
-	
+
 #Add Postlogin script here (remove in future)
-	
+
 	#install -Dm755 ${srcdir}/$pkgbase/PostLogin/Default ${pkgdir}/etc/gdm/PostLogin/Default #removed
-	
+
 #Add Hook to inform user about night-light bug into GDM (https://bugzilla.gnome.org/show_bug.cgi?id=785273)
-	
+
 	install -Dm644 ${srcdir}/disable-gdm-night-light.hook ${pkgdir}/usr/share/libalpm/hooks/disable-gdm-night-light.hook
 	install -Dm755 ${srcdir}/disable-gdm-night-light.script ${pkgdir}/usr/share/libalpm/scripts/disable-gdm-night-light
-	
+
 	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gnome-messages.hook
 	install -Dm755 ${srcdir}/manjaro-gnome-messages.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
-	 
+
 }
 
 
@@ -93,10 +93,10 @@ optdepends=("manjaro-gnome-settings-$_branch")
 conflicts=('manjaro-gnome-extension-settings' "manjaro-gnome-extension-settings-$_branch")
 replaces=("manjaro-gnome-extension-settings-$_branch")
 
-	_inst_dir-extension	
-	install -Dm644 ${srcdir}/manjaro-extensions.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-extensions.hook	
+	_inst_dir-extension
+	install -Dm644 ${srcdir}/manjaro-extensions.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-extensions.hook
 	install -Dm755 ${srcdir}/manjaro-extensions.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-extensions
-	
+
 }
 
 package_manjaro-gdm-branding() {
@@ -110,7 +110,7 @@ depends=('gnome-shell' 'dconf')
 	install -Dm644 ${srcdir}/logo/logo_text_white_48px.png ${pkgdir}/usr/share/icons/manjaro/maia/logo_text_white_48px.png
 	install -Dm644 ${srcdir}/manjaro-gdm-branding-install.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gdm-branding-install.hook
 	install -Dm644 ${srcdir}/manjaro-gdm-branding-remove.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gdm-branding-remove.hook
-	
+
 }
 
 # package_manjaro-gnome-minimal-settings() {
@@ -120,3 +120,4 @@ depends=('gnome-shell' 'dconf')
 #
 # 	_inst_dir '/minimal'
 # }
+

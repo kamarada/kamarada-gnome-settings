@@ -6,8 +6,8 @@ _branch=19.0
 _oldbranch=18.0
 pkgname=("$pkgbase" "manjaro-gnome-extension-settings" 'manjaro-gdm-branding')
 #          'manjaro-gnome-minimal-settings')
-pkgver=20201014
-pkgrel=1
+pkgver=20201017
+pkgrel=3
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -53,6 +53,12 @@ _inst_dir-extension(){
 
 	install -d $pkgdir/usr/share/gnome-shell/extensions/arc-menu@linxgem33.com/schemas
 	cp $srcdir/$pkgbase/schemas/10_arc-menu.gschema.override $pkgdir/usr/share/gnome-shell/extensions/arc-menu@linxgem33.com/schemas
+
+	install -d $pkgdir/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas
+	cp $srcdir/$pkgbase/schemas/10_material-shell.gschema.override $pkgdir/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas
+
+	install -d $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
+	cp $srcdir/$pkgbase/schemas/10_pop-shell.gschema.override $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
 }
 
 pkgver() {

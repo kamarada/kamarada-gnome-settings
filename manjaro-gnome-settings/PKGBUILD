@@ -7,7 +7,7 @@ _oldbranch=18.0
 pkgname=("$pkgbase" "manjaro-gnome-extension-settings" 'manjaro-gdm-branding')
 #          'manjaro-gnome-minimal-settings')
 pkgver=20201017
-pkgrel=3
+pkgrel=4
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -25,7 +25,7 @@ sha256sums=('SKIP'
             '588f024527bcc54ecb6d6f5d1c6c4879c400ec37cacabd2547540aadf0e0bda7'
             '36059545cb8be943deaf6303b793600a2d3c60c4df11e384859eb5c5bff9b8f7'
             '4e17fac482415309fddf61de1ae67e25e1646f61dc5596bfe760011dcc5c9dbd'
-            'f9a4fe8a0d24622556867e01fdd02234606b7cb5b47bdcaa1d69981f6d950c19'
+            '11dae340892d5b89cd4c9ea85fa782d414a0df9e670d0ebfe14bfbf2aa9f45ba'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
             '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c')
 

@@ -2,11 +2,12 @@
 
 #override extensions settings
 
-for i in dash-to-dock@micxgx.gmail.com arc-menu@linxgem33.com material-shell@papyelgringo pop-shell@system76.com; do
-	if [[ -f "/usr/share/gnome-shell/extensions/$i/schemas/gschemas.compiled" ]]; then
-	rm -f /usr/share/gnome-shell/extensions/$i/schemas/gschemas.compiled
-	glib-compile-schemas /usr/share/gnome-shell/extensions/$i/schemas
-	else glib-compile-schemas /usr/share/gnome-shell/extensions/$i/schemas	
+ext_path=/usr/share/gnome-shell/extensions
+
+for i in $(ls $ext_path/); do
+	if [[ -d "$ext_path/$i/schemas" ]]; then
+		if [[ -f $ext_path/$i/schemas/*.xml ]] || [[ $ext_path/$i/schemas/*.override ]]; then
+			glib-compile-schemas $ext_path/$i/schemas
+		fi
 	fi
 done
-

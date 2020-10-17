@@ -1,11 +1,12 @@
 [Trigger]
+Type = Path
 Operation = Install
 Operation = Upgrade
-Type = Package
-Target = gnome-shell-extension-*
-Target = manjaro-gnome-settings
+Operation = Remove
+Target = usr/share/gnome-shell/extensions/*/schemas/*gschema.xml 
+Target = usr/share/gnome-shell/extensions/*/schemas/*gschema.override 
 
 [Action]
-Description = Install Manjaro extensions settings
+Description = Compiling Community GSettings XML schema files...
 When = PostTransaction
-Exec = /usr/share/libalpm/scripts/manjaro-extensions
+Exec = /usr/bin/glib-compile-schemas usr/share/gnome-shell/extensions/*/schemas

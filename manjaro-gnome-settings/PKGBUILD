@@ -13,8 +13,6 @@ url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
 source=("manjaro-gnome-settings::git+$url.git#branch=$_branch"
 		'logo::git+https://gitlab.manjaro.org/artwork/branding/logo.git'
-		'disable-gdm-night-light.hook'
-		'disable-gdm-night-light.script'
 		'manjaro-gnome-messages.hook'
 		'manjaro-gnome-messages.script'
 		'manjaro-extensions.hook'
@@ -24,8 +22,6 @@ source=("manjaro-gnome-settings::git+$url.git#branch=$_branch"
 makedepends=('git')
 sha256sums=('SKIP'
             'SKIP'
-            '430c34abc34b7016eb649dafb4580223bc48d3131a01dd1b1c017dcb8b9d290c'
-            '7861c38d66c3cb9994f4b4120f8dce5d4b2c37400b8de5ce08af3677cd389269'
             '588f024527bcc54ecb6d6f5d1c6c4879c400ec37cacabd2547540aadf0e0bda7'
             '36059545cb8be943deaf6303b793600a2d3c60c4df11e384859eb5c5bff9b8f7'
             '4e17fac482415309fddf61de1ae67e25e1646f61dc5596bfe760011dcc5c9dbd'
@@ -76,15 +72,6 @@ replaces=("manjaro-gnome-settings-$_branch")
 provides=("manjaro-desktop-settings")
 
 	_inst_dir
-
-#Add Postlogin script here (remove in future)
-
-	#install -Dm755 ${srcdir}/$pkgbase/PostLogin/Default ${pkgdir}/etc/gdm/PostLogin/Default #removed
-
-#Add Hook to inform user about night-light bug into GDM (https://bugzilla.gnome.org/show_bug.cgi?id=785273)
-
-	install -Dm644 ${srcdir}/disable-gdm-night-light.hook ${pkgdir}/usr/share/libalpm/hooks/disable-gdm-night-light.hook
-	install -Dm755 ${srcdir}/disable-gdm-night-light.script ${pkgdir}/usr/share/libalpm/scripts/disable-gdm-night-light
 
 	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gnome-messages.hook
 	install -Dm755 ${srcdir}/manjaro-gnome-messages.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages

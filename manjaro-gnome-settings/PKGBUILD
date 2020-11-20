@@ -6,7 +6,7 @@ _branch=20.2
 _oldbranch=19.0
 pkgname=("$pkgbase" "manjaro-gnome-extension-settings" 'manjaro-gdm-branding')
 #          'manjaro-gnome-minimal-settings')
-pkgver=20201110
+pkgver=20201120
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -52,6 +52,8 @@ _inst_dir-extension(){
 
 	install -d $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
 	cp $srcdir/$pkgbase/schemas/10_pop-shell.gschema.override $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
+
+	cp $srcdir/$pkgbase/schemas/appfolder-settings $pkgdir/usr/share/gnome-shell/app-folder-settings
 }
 
 pkgver() {

@@ -30,7 +30,7 @@ sha256sums=('SKIP'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
             '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c'
             '3ecf8652c3a54a71db4dcb890bcaa156fd05e8aee0203e4993524e48492fd119'
-            'd21ece7269e2889c106b88f392ed070b5a05cd35ef6cdeaeb03b77d8a97da555')
+            '4b2b62b8107c7867d729553b06da249d6bee4349ed51d1893b267dd40cabdaa7')
 
 _inst_dir(){
 	install -d $pkgdir/etc

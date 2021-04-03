@@ -53,6 +53,8 @@ _inst_dir-extension(){
 	install -d $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
 	cp $srcdir/$pkgbase/schemas/10_pop-shell.gschema.override $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
 
+	install -d $pkgdir/usr/bin
+	install -Dm755 $srcdir/$pkgbase/scripts/apply-tiling-settings $pkgdir/usr/bin/apply-tiling-settings
 	cp $srcdir/$pkgbase/schemas/appfolder-settings $pkgdir/usr/share/gnome-shell/app-folder-settings
 }
 

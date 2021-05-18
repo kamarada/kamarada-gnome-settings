@@ -1,7 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
-pkgver=20201013
+pkgver=20210518
 pkgrel=1
 _branch=19.0
 url="www.manjaro.org"
@@ -16,7 +16,7 @@ depends=('manjaro-gnome-settings'
         'gnome-shell-extension-dash-to-dock'
         'gnome-shell-extension-appindicator'
         'gnome-shell-extension-dash-to-panel'
-        'gnome-shell-extension-pop-shell'
+        #'gnome-shell-extension-pop-shell'
         'gnome-shell-extension-material-shell'
         'gnome-shell-extension-gsconnect'
         'gnome-shell-extension-desktop-icons-ng'
@@ -35,16 +35,14 @@ depends=('manjaro-gnome-settings'
         'manjaro-wallpapers-18.0'
         'manjaro-gdm-branding'
         'manjaro-gdm-theme'
+        'nerd-fonts-noto-sans-mono'
 )
 optdepends=('lighter-gnome: some gnome-settings-daemon components'
-			'noto-fonts-compat')
+            'noto-fonts-compat'
+            'gnome-shell-extension-pop-shell: for more i3 like tiling')
 conflicts=("$pkgname" "$pkgname-$_branch")
 replaces=("$pkgname-$_branch")
 
 pkgver() {
     date +%Y%m%d
 }
-
-
-
-

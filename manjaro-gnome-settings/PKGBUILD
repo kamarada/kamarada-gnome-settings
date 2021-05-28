@@ -5,7 +5,7 @@ pkgbase=manjaro-gnome-settings
 _branch=gnome-next
 _oldbranch=19.0
 pkgname=("$pkgbase" "manjaro-gnome-extension-settings" 'manjaro-gdm-branding')
-pkgver=20210521
+pkgver=20210528
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -43,17 +43,18 @@ _inst_dir-extension(){
 
 #add here extensions : for any extension repeat the follow schemas
 
-	install -d $pkgdir/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
-	cp $srcdir/$pkgbase/schemas/10_dash-to-dock.gschema.override $pkgdir/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
+#	install -d $pkgdir/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
+#	cp $srcdir/$pkgbase/schemas/10_dash-to-dock.gschema.override $pkgdir/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
 
-	install -d $pkgdir/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas
-	cp $srcdir/$pkgbase/schemas/10_material-shell.gschema.override $pkgdir/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas
+#	install -d $pkgdir/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas
+#	cp $srcdir/$pkgbase/schemas/10_material-shell.gschema.override $pkgdir/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas
 
-	install -d $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
-	cp $srcdir/$pkgbase/schemas/10_pop-shell.gschema.override $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
+#	install -d $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
+#	cp $srcdir/$pkgbase/schemas/10_pop-shell.gschema.override $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
 
-	install -d $pkgdir/usr/bin
-	install -Dm755 $srcdir/$pkgbase/scripts/apply-tiling-settings $pkgdir/usr/bin/apply-tiling-settings
+#	install -d $pkgdir/usr/bin
+#	install -Dm755 $srcdir/$pkgbase/scripts/apply-tiling-settings $pkgdir/usr/bin/apply-tiling-settings
+	install -d $pkgdir/usr/share/gnome-shell
 	cp $srcdir/$pkgbase/schemas/appfolder-settings $pkgdir/usr/share/gnome-shell/app-folder-settings
 }
 

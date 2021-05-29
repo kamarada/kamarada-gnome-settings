@@ -5,7 +5,7 @@ pkgbase=manjaro-gnome-settings
 _branch=gnome-next
 _oldbranch=19.0
 pkgname=("$pkgbase" "manjaro-gnome-extension-settings" 'manjaro-gdm-branding')
-pkgver=20210528
+pkgver=20210529
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -56,6 +56,7 @@ _inst_dir-extension(){
 	install -Dm755 $srcdir/$pkgbase/scripts/apply-tiling-settings $pkgdir/usr/bin/apply-tiling-settings
 	install -d $pkgdir/usr/share/gnome-shell
 	cp $srcdir/$pkgbase/schemas/appfolder-settings $pkgdir/usr/share/gnome-shell/app-folder-settings
+	cp $srcdir/$pkgbase/schemas/etcetera.gschema.override $pkgdir/usr/share/gnome-shell/etcetera.gschema.override
 }
 
 pkgver() {

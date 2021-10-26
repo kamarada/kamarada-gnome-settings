@@ -5,7 +5,7 @@ pkgbase=manjaro-gnome-settings
 _branch=gnome-next
 _oldbranch=19.0
 pkgname=("$pkgbase" "manjaro-gnome-extension-settings" 'manjaro-gdm-branding')
-pkgver=20211023
+pkgver=20211026
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -14,24 +14,20 @@ source=("git+$url.git#branch=$_branch"
 		'git+https://gitlab.manjaro.org/artwork/branding/logo.git'
 		'manjaro-gnome-messages.hook'
 		'manjaro-gnome-messages.script'
-		'manjaro-extensions.hook'
 		'manjaro-gdm-branding-install.hook'
 		'manjaro-gdm-branding-remove.hook'
-		'manjaro-extensions.hook'
-		'manjaro-extensions.script'
+#		'manjaro-extensions.hook'
+#		'manjaro-extensions.script'
 )
 makedepends=('git')
 sha256sums=('SKIP'
             'SKIP'
             '588f024527bcc54ecb6d6f5d1c6c4879c400ec37cacabd2547540aadf0e0bda7'
             '36059545cb8be943deaf6303b793600a2d3c60c4df11e384859eb5c5bff9b8f7'
-            '3ecf8652c3a54a71db4dcb890bcaa156fd05e8aee0203e4993524e48492fd119'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
-            '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c'
-            '3ecf8652c3a54a71db4dcb890bcaa156fd05e8aee0203e4993524e48492fd119'
-            '4b2b62b8107c7867d729553b06da249d6bee4349ed51d1893b267dd40cabdaa7')
+            '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c')
 
-_inst_dir(){
+_inst_dir() {
 	install -d $pkgdir/etc
 	cp -r $srcdir/$pkgbase/skel $pkgdir/etc
 
@@ -39,80 +35,77 @@ _inst_dir(){
 	cp $srcdir/$pkgbase/schemas/99_manjaro-settings.gschema.override $pkgdir/usr/share/glib-2.0/schemas
 }
 
-_inst_dir-extension(){
+_inst_dir-extension() {
+	cd "$srcdir/$pkgbase"
 
-#add here extensions : for any extension repeat the follow schemas
+	# add here extensions : for any extension repeat the follow schemas
 
-	install -d $pkgdir/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
-	cp $srcdir/$pkgbase/schemas/10_dash-to-dock.gschema.override $pkgdir/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
+	# Dash to Dock
+	install -Dm644 schemas/10_dash-to-dock.gschema.override -t ${pkgdir}/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/
 
-	install -d $pkgdir/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas
-	cp $srcdir/$pkgbase/schemas/10_material-shell.gschema.override $pkgdir/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas
+	# Material Shell
+	install -Dm644 schemas/10_material-shell.gschema.override -t ${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 
-	install -d $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
-	cp $srcdir/$pkgbase/schemas/10_pop-shell.gschema.override $pkgdir/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas
+	# Pop Shell
+	install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas/
 
-	install -d $pkgdir/usr/bin
-	install -Dm755 $srcdir/$pkgbase/scripts/apply-tiling-settings $pkgdir/usr/bin/apply-tiling-settings
-	install -d $pkgdir/usr/share/gnome-shell
-	cp $srcdir/$pkgbase/schemas/appfolder-settings $pkgdir/usr/share/gnome-shell/app-folder-settings
-	cp $srcdir/$pkgbase/schemas/etcetera.gschema.override $pkgdir/usr/share/gnome-shell/etcetera.gschema.override
+	install -Dm755 scripts/apply-tiling-settings -t ${pkgdir}/usr/bin/
+	install -Dm644 schemas/{appfolder-settings,etcetera.gschema.override} -t ${pkgdir}/usr/share/gnome-shell/
 }
 
 pkgver() {
-    date +%Y%m%d
+	date +%Y%m%d
 }
 
 package_manjaro-gnome-settings() {
-pkgdesc="Manjaro Linux Gnome settings"
+	pkgdesc="Manjaro Linux Gnome settings"
 
-optdepends=('manjaro-gdm-theme: Branding theme for Gdm'
-			'lighter-gnome: some gnome-settings-daemon components'
-			'papirus-maia-icon-theme: default icons set')
-provides=("manjaro-desktop-settings")
-conflicts=("manjaro-gnome-settings-$_branch" "manjaro-gnome-settings-$_oldbranch")
-replaces=("manjaro-gnome-settings-$_branch")
+	optdepends=('manjaro-gdm-theme: Branding theme for Gdm'
+				'lighter-gnome: some gnome-settings-daemon components'
+				'papirus-maia-icon-theme: default icons set')
+	provides=("manjaro-desktop-settings")
+	conflicts=("manjaro-gnome-settings-$_branch" "manjaro-gnome-settings-$_oldbranch")
+	replaces=("manjaro-gnome-settings-$_branch")
 
 	_inst_dir
 
-	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gnome-messages.hook
+	cd "$srcdir/$pkgbase"
+	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook -t ${pkgdir}/usr/share/libalpm/hooks/
 	install -Dm755 ${srcdir}/manjaro-gnome-messages.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
-	install -Dm644 ${srcdir}/$pkgbase/colors/Adwaita-maia-dark.conf ${pkgdir}/usr/share/qt5ct/colors/Adwaita-maia-dark.conf
-	install -Dm644 ${srcdir}/$pkgbase/colors/Adwaita-maia.conf ${pkgdir}/usr/share/qt5ct/colors/Adwaita-maia.conf
+	install -Dm644 colors/Adwaita-maia-dark.conf -t ${pkgdir}/usr/share/qt5ct/colors/
+	install -Dm644 colors/Adwaita-maia.conf -t ${pkgdir}/usr/share/qt5ct/colors/
 }
 
 
 package_manjaro-gnome-extension-settings() {
-
-pkgdesc="Manjaro Linux Gnome extensions settings"
-optdepends=("manjaro-gnome-settings-$_branch")
-conflicts=("manjaro-gnome-extension-settings-$_branch")
-replaces=("manjaro-gnome-extension-settings-$_branch")
+	pkgdesc="Manjaro Linux Gnome extensions settings"
+	optdepends=("manjaro-gnome-settings-$_branch")
+	conflicts=("manjaro-gnome-extension-settings-$_branch")
+	replaces=("manjaro-gnome-extension-settings-$_branch")
 
 	_inst_dir-extension
 
-	install -Dm644 ${srcdir}/manjaro-extensions.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-extensions.hook
-	install -Dm755 ${srcdir}/manjaro-extensions.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-extensions
+#	install -Dm644 ${srcdir}/manjaro-extensions.hook -t ${pkgdir}/usr/share/libalpm/hooks/
+#	install -Dm755 ${srcdir}/manjaro-extensions.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-extensions
 }
 
 package_manjaro-gdm-branding() {
+	pkgdesc="Manjaro GDM branding"
+	depends=('gnome-shell' 'dconf')
 
-pkgdesc="Manjaro GDM branding"
-depends=('gnome-shell' 'dconf')
+	cd "$srcdir/$pkgbase"
+	install -Dm644 schemas/gdm -t ${pkgdir}/etc/dconf/profile/
+	install -Dm644 schemas/10_manjaro-gdm-branding -t ${pkgdir}/etc/dconf/db/gdm.d/
 
-	install -Dm644 ${srcdir}/${pkgbase}/schemas/gdm ${pkgdir}/etc/dconf/profile/gdm
-	install -Dm644 ${srcdir}/${pkgbase}/schemas/10_manjaro-gdm-branding ${pkgdir}/etc/dconf/db/gdm.d/10_manjaro-gdm-branding
-
-	install -Dm644 ${srcdir}/logo/logo_text_white_48px.png ${pkgdir}/usr/share/icons/manjaro/maia/logo_text_white_48px.png
-	install -Dm644 ${srcdir}/manjaro-gdm-branding-install.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gdm-branding-install.hook
-	install -Dm644 ${srcdir}/manjaro-gdm-branding-remove.hook ${pkgdir}/usr/share/libalpm/hooks/manjaro-gdm-branding-remove.hook
+	install -Dm644 ${srcdir}/logo/logo_text_white_48px.png -t ${pkgdir}/usr/share/icons/manjaro/maia/
+	install -Dm644 ${srcdir}/manjaro-gdm-branding-install.hook -t ${pkgdir}/usr/share/libalpm/hooks/
+	install -Dm644 ${srcdir}/manjaro-gdm-branding-remove.hook -t ${pkgdir}/usr/share/libalpm/hooks/
 }
 
-# package_manjaro-gnome-minimal-settings() {
-# 	pkgdesc='Manjaro Linux gnome-minimal settings'
-# 	depends=()
-# 	provides=('manjaro-desktop-settings')
-#
-# 	_inst_dir '/minimal'
-# }
+#package_manjaro-gnome-minimal-settings() {
+#	pkgdesc='Manjaro Linux gnome-minimal settings'
+#	depends=()
+#	provides=('manjaro-desktop-settings')
 
+#	_inst_dir '/minimal'
+#}

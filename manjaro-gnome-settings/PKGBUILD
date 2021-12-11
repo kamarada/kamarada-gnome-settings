@@ -41,7 +41,9 @@ _inst_dir-extension() {
 	# add here extensions : for any extension repeat the follow schemas
 
 	# Dash to Dock
-	install -Dm644 schemas/10_dash-to-dock.gschema.override -t ${pkgdir}/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/
+	# https://github.com/micheleg/dash-to-dock/issues/1475#issuecomment-880138403
+	# Don't install this. Otherwise it needs to be precompiled
+	#install -Dm644 schemas/10_dash-to-dock.gschema.override -t ${pkgdir}/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/
 
 	# Material Shell
 	install -Dm644 schemas/10_material-shell.gschema.override -t ${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/

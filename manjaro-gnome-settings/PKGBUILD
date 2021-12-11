@@ -23,7 +23,7 @@ makedepends=('git')
 sha256sums=('SKIP'
             'SKIP'
             '588f024527bcc54ecb6d6f5d1c6c4879c400ec37cacabd2547540aadf0e0bda7'
-            '36059545cb8be943deaf6303b793600a2d3c60c4df11e384859eb5c5bff9b8f7'
+            '898aa633e9dd0fbcf821b1026f6daf08b4b06051899c7cc47079e5cfd55339e1'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
             '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c')
 

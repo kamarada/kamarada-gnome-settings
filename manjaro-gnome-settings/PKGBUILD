@@ -45,10 +45,13 @@ package_manjaro-gnome-settings() {
 	install -d ${pkgdir}/etc
 	cp -r skel ${pkgdir}/etc
 
-	install -Dm644 schemas/99_manjaro-settings.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+	install -Dm644 schemas/99_manjaro-settings.gschema.override -t \
+		${pkgdir}/usr/share/glib-2.0/schemas/
 
-	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook -t ${pkgdir}/usr/share/libalpm/hooks/
-	install -Dm755 ${srcdir}/manjaro-gnome-messages.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
+	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook -t \
+		${pkgdir}/usr/share/libalpm/hooks/
+	install -Dm755 ${srcdir}/manjaro-gnome-messages.script \
+		${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
 	install -Dm644 colors/Adwaita-maia-dark.conf -t ${pkgdir}/usr/share/qt5ct/colors/
 	install -Dm644 colors/Adwaita-maia.conf -t ${pkgdir}/usr/share/qt5ct/colors/
 }
@@ -65,13 +68,17 @@ package_manjaro-gnome-extension-settings() {
 	# add here extensions : for any extension repeat the follow schemas
 
 	# Dash to Dock
-	install -Dm644 schemas/10_dash-to-dock.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+	install -Dm644 schemas/10_dash-to-dock.gschema.override -t \
+		${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Material Shell
-	install -Dm644 schemas/10_material-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+	# Has 4 custom schemas files in extension schema folder, does not have standard schema XML
+	install -Dm644 schemas/10_material-shell.gschema.override -t \
+		${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 
 	# Night Theme Switcher
-	install -Dm644 schemas/10_nightthemeswitcher.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+	install -Dm644 schemas/10_nightthemeswitcher.gschema.override -t \
+		${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Pop Shell
 	install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
@@ -80,10 +87,12 @@ package_manjaro-gnome-extension-settings() {
 	install -Dm644 schemas/appfolder-settings -t ${pkgdir}/usr/share/gnome-shell/
 
 	# Vertical Overview
-	install -Dm644 schemas/10_vertical-overview.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+	install -Dm644 schemas/10_vertical-overview.gschema.override -t \
+		${pkgdir}/usr/share/glib-2.0/schemas/
 
 #	install -Dm644 ${srcdir}/manjaro-extensions.hook -t ${pkgdir}/usr/share/libalpm/hooks/
-#	install -Dm755 ${srcdir}/manjaro-extensions.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-extensions
+#	install -Dm755 ${srcdir}/manjaro-extensions.script \
+#		${pkgdir}/usr/share/libalpm/scripts/manjaro-extensions
 }
 
 package_manjaro-gdm-branding() {
@@ -94,9 +103,12 @@ package_manjaro-gdm-branding() {
 	install -Dm644 schemas/gdm -t ${pkgdir}/etc/dconf/profile/
 	install -Dm644 schemas/10_manjaro-gdm-branding -t ${pkgdir}/etc/dconf/db/gdm.d/
 
-	install -Dm644 ${srcdir}/logo/logo_text_white_48px.png -t ${pkgdir}/usr/share/icons/manjaro/maia/
-	install -Dm644 ${srcdir}/manjaro-gdm-branding-install.hook -t ${pkgdir}/usr/share/libalpm/hooks/
-	install -Dm644 ${srcdir}/manjaro-gdm-branding-remove.hook -t ${pkgdir}/usr/share/libalpm/hooks/
+	install -Dm644 ${srcdir}/logo/logo_text_white_48px.png -t \
+		${pkgdir}/usr/share/icons/manjaro/maia/
+	install -Dm644 ${srcdir}/manjaro-gdm-branding-install.hook -t \
+		${pkgdir}/usr/share/libalpm/hooks/
+	install -Dm644 ${srcdir}/manjaro-gdm-branding-remove.hook -t \
+		${pkgdir}/usr/share/libalpm/hooks/
 }
 
 #package_manjaro-gnome-minimal-settings() {

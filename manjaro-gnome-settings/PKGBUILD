@@ -43,13 +43,13 @@ _inst_dir-extension() {
 	# Dash to Dock
 	# https://github.com/micheleg/dash-to-dock/issues/1475#issuecomment-880138403
 	# Don't install this. Otherwise it needs to be precompiled
-	#install -Dm644 schemas/10_dash-to-dock.gschema.override -t ${pkgdir}/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/
+	install -Dm644 schemas/10_dash-to-dock.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Material Shell
-	install -Dm644 schemas/10_material-shell.gschema.override -t ${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
+	install -Dm644 schemas/10_material-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Pop Shell
-	install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas/
+	install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
 
 	install -Dm755 scripts/apply-tiling-settings -t ${pkgdir}/usr/bin/
 	install -Dm644 schemas/{appfolder-settings,etcetera.gschema.override} -t ${pkgdir}/usr/share/gnome-shell/

@@ -5,7 +5,7 @@ pkgbase=manjaro-gnome-settings
 _branch=gnome-next
 _oldbranch=19.0
 pkgname=("$pkgbase" "manjaro-gnome-extension-settings" 'manjaro-gdm-branding')
-pkgver=20211210
+pkgver=20211211
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -27,34 +27,6 @@ sha256sums=('SKIP'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
             '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c')
 
-_inst_dir() {
-	install -d $pkgdir/etc
-	cp -r $srcdir/$pkgbase/skel $pkgdir/etc
-
-	install -d $pkgdir/usr/share/glib-2.0/schemas
-	cp $srcdir/$pkgbase/schemas/99_manjaro-settings.gschema.override $pkgdir/usr/share/glib-2.0/schemas
-}
-
-_inst_dir-extension() {
-	cd "$srcdir/$pkgbase"
-
-	# add here extensions : for any extension repeat the follow schemas
-
-	# Dash to Dock
-	# https://github.com/micheleg/dash-to-dock/issues/1475#issuecomment-880138403
-	# Don't install this. Otherwise it needs to be precompiled
-	install -Dm644 schemas/10_dash-to-dock.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
-
-	# Material Shell
-	install -Dm644 schemas/10_material-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
-
-	# Pop Shell
-	install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
-
-	install -Dm755 scripts/apply-tiling-settings -t ${pkgdir}/usr/bin/
-	install -Dm644 schemas/{appfolder-settings,etcetera.gschema.override} -t ${pkgdir}/usr/share/gnome-shell/
-}
-
 pkgver() {
 	date +%Y%m%d
 }
@@ -69,9 +41,12 @@ package_manjaro-gnome-settings() {
 	conflicts=("manjaro-gnome-settings-$_branch" "manjaro-gnome-settings-$_oldbranch")
 	replaces=("manjaro-gnome-settings-$_branch")
 
-	_inst_dir
-
 	cd "$srcdir/$pkgbase"
+	install -d ${pkgdir}/etc
+	cp -r skel ${pkgdir}/etc
+
+	install -Dm644 schemas/99_manjaro-settings.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+
 	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook -t ${pkgdir}/usr/share/libalpm/hooks/
 	install -Dm755 ${srcdir}/manjaro-gnome-messages.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
 	install -Dm644 colors/Adwaita-maia-dark.conf -t ${pkgdir}/usr/share/qt5ct/colors/
@@ -85,7 +60,27 @@ package_manjaro-gnome-extension-settings() {
 	conflicts=("manjaro-gnome-extension-settings-$_branch")
 	replaces=("manjaro-gnome-extension-settings-$_branch")
 
-	_inst_dir-extension
+	cd "$srcdir/$pkgbase"
+
+	# add here extensions : for any extension repeat the follow schemas
+
+	# Dash to Dock
+	install -Dm644 schemas/10_dash-to-dock.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+
+	# Material Shell
+	install -Dm644 schemas/10_material-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+
+	# Night Theme Switcher
+	install -Dm644 schemas/10_nightthemeswitcher.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+
+	# Pop Shell
+	install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+
+	install -Dm755 scripts/apply-tiling-settings -t ${pkgdir}/usr/bin/
+	install -Dm644 schemas/appfolder-settings -t ${pkgdir}/usr/share/gnome-shell/
+
+	# Vertical Overview
+	install -Dm644 schemas/10_vertical-overview.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
 
 #	install -Dm644 ${srcdir}/manjaro-extensions.hook -t ${pkgdir}/usr/share/libalpm/hooks/
 #	install -Dm755 ${srcdir}/manjaro-extensions.script ${pkgdir}/usr/share/libalpm/scripts/manjaro-extensions

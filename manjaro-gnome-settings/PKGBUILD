@@ -72,7 +72,7 @@ package_manjaro-gnome-extension-settings() {
 		${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Material Shell
-	# Has 4 custom schemas files in extension schema folder, does not have standard schema XML
+	# Has 4 custom schema files in extension schemas folder, does not have standard schema XML
 	install -Dm644 schemas/10_material-shell.gschema.override -t \
 		${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 

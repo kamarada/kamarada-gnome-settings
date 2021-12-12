@@ -5,7 +5,7 @@ pkgbase=manjaro-gnome-settings
 _branch=gnome-next
 _oldbranch=19.0
 pkgname=("$pkgbase" "manjaro-gnome-extension-settings" 'manjaro-gdm-branding')
-pkgver=20211210
+pkgver=20211212
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -43,16 +43,16 @@ _inst_dir-extension() {
 	# Dash to Dock
 	# https://github.com/micheleg/dash-to-dock/issues/1475#issuecomment-880138403
 	# Don't install this. Otherwise it needs to be precompiled
-	install -Dm644 schemas/10_dash-to-dock.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+	#install -Dm644 schemas/10_dash-to-dock.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Material Shell
-	install -Dm644 schemas/10_material-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+	#install -Dm644 schemas/10_material-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Pop Shell
-	install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+	#install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
 
 	install -Dm755 scripts/apply-tiling-settings -t ${pkgdir}/usr/bin/
-	install -Dm644 schemas/{appfolder-settings,etcetera.gschema.override} -t ${pkgdir}/usr/share/gnome-shell/
+	#install -Dm644 schemas/{appfolder-settings,etcetera.gschema.override} -t ${pkgdir}/usr/share/gnome-shell/
 }
 
 pkgver() {
@@ -97,7 +97,7 @@ package_manjaro-gdm-branding() {
 
 	cd "$srcdir/$pkgbase"
 	install -Dm644 schemas/gdm -t ${pkgdir}/etc/dconf/profile/
-	install -Dm644 schemas/10_manjaro-gdm-branding -t ${pkgdir}/etc/dconf/db/gdm.d/
+	#install -Dm644 schemas/10_manjaro-gdm-branding -t ${pkgdir}/etc/dconf/db/gdm.d/
 
 	install -Dm644 ${srcdir}/logo/logo_text_white_48px.png -t ${pkgdir}/usr/share/icons/manjaro/maia/
 	install -Dm644 ${srcdir}/manjaro-gdm-branding-install.hook -t ${pkgdir}/usr/share/libalpm/hooks/

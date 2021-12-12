@@ -5,7 +5,7 @@ pkgbase=manjaro-gnome-settings
 _branch=gnome-next
 _oldbranch=19.0
 pkgname=("$pkgbase" "manjaro-gnome-extension-settings" 'manjaro-gdm-branding')
-pkgver=20211210
+pkgver=20211212
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -52,7 +52,7 @@ _inst_dir-extension() {
 	install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/gnome-shell/extensions/pop-shell@system76.com/schemas/
 
 	install -Dm755 scripts/apply-tiling-settings -t ${pkgdir}/usr/bin/
-	install -Dm644 schemas/{appfolder-settings,etcetera.gschema.override} -t ${pkgdir}/usr/share/gnome-shell/
+	install -Dm644 schemas/appfolder-settings -t ${pkgdir}/usr/share/gnome-shell/
 }
 
 pkgver() {

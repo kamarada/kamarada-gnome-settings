@@ -55,8 +55,6 @@ _inst_dir-extension() {
 	#install -Dm644 schemas/{appfolder-settings,etcetera.gschema.override} -t ${pkgdir}/usr/share/gnome-shell/
 }
 
-=======
->>>>>>> 80b1af4ca423fa4aa2922a44a98d46c1c2510a77
 pkgver() {
 	date +%Y%m%d
 }

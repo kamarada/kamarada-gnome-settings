@@ -16,8 +16,6 @@ source=("git+$url.git#branch=$_branch"
 		'manjaro-gnome-messages.script'
 		'manjaro-gdm-branding-install.hook'
 		'manjaro-gdm-branding-remove.hook'
-#		'manjaro-extensions.hook'
-#		'manjaro-extensions.script'
 )
 makedepends=('git')
 sha256sums=('SKIP'
@@ -89,10 +87,6 @@ package_manjaro-gnome-extension-settings() {
 	# Vertical Overview
 	install -Dm644 schemas/org.gnome.shell.extensions.vertical-overview.gschema.override -t \
 		${pkgdir}/usr/share/glib-2.0/schemas/
-
-#	install -Dm644 ${srcdir}/manjaro-extensions.hook -t ${pkgdir}/usr/share/libalpm/hooks/
-#	install -Dm755 ${srcdir}/manjaro-extensions.script \
-#		${pkgdir}/usr/share/libalpm/scripts/manjaro-extensions
 }
 
 package_manjaro-gdm-branding() {

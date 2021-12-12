@@ -27,7 +27,6 @@ sha256sums=('SKIP'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
             '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c')
 
-<<<<<<< HEAD
 _inst_dir() {
 	install -d $pkgdir/etc
 	cp -r $srcdir/$pkgbase/skel $pkgdir/etc

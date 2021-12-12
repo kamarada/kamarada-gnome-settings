@@ -96,27 +96,27 @@ package_manjaro-gnome-extension-settings() {
 	# add here extensions : for any extension repeat the follow schemas
 
 	# Dash to Dock
-	install -Dm644 schemas/10_dash-to-dock.gschema.override -t \
-		${pkgdir}/usr/share/glib-2.0/schemas/
+	#install -Dm644 schemas/10_dash-to-dock.gschema.override -t \
+	#	${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Material Shell
 	# Has 4 custom schema files in extension schemas folder, does not have standard schema XML
-	install -Dm644 schemas/10_material-shell.gschema.override -t \
-		${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
+	#install -Dm644 schemas/10_material-shell.gschema.override -t \
+	#	${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 
 	# Night Theme Switcher
-	install -Dm644 schemas/10_nightthemeswitcher.gschema.override -t \
-		${pkgdir}/usr/share/glib-2.0/schemas/
+	#install -Dm644 schemas/10_nightthemeswitcher.gschema.override -t \
+	#	${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Pop Shell
-	install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
+	#install -Dm644 schemas/10_pop-shell.gschema.override -t ${pkgdir}/usr/share/glib-2.0/schemas/
 
 	install -Dm755 scripts/apply-tiling-settings -t ${pkgdir}/usr/bin/
 	install -Dm644 schemas/appfolder-settings -t ${pkgdir}/usr/share/gnome-shell/
 
 	# Vertical Overview
-	install -Dm644 schemas/10_vertical-overview.gschema.override -t \
-		${pkgdir}/usr/share/glib-2.0/schemas/
+	#install -Dm644 schemas/10_vertical-overview.gschema.override -t \
+	#	${pkgdir}/usr/share/glib-2.0/schemas/
 
 #	install -Dm644 ${srcdir}/manjaro-extensions.hook -t ${pkgdir}/usr/share/libalpm/hooks/
 #	install -Dm755 ${srcdir}/manjaro-extensions.script \

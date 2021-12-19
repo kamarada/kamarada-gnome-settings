@@ -4,7 +4,7 @@
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
 pkgver=20211219
-pkgrel=2
+pkgrel=3
 _branch=gnome-next
 _oldbranch=19.0
 arch=('any')

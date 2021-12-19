@@ -4,7 +4,7 @@
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
 pkgver=20211219
-pkgrel=3
+pkgrel=4
 _branch=gnome-next
 _oldbranch=19.0
 arch=('any')
@@ -23,7 +23,9 @@ sha256sums=('SKIP'
             '588f024527bcc54ecb6d6f5d1c6c4879c400ec37cacabd2547540aadf0e0bda7'
             '898aa633e9dd0fbcf821b1026f6daf08b4b06051899c7cc47079e5cfd55339e1'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
-            '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c')
+            '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c'
+            '83ab382cfe43ede0d96ab1add1f68eb9e9375e48924550e53610e1b5dff885d0'
+            '2afe601179c82385a5daf1f321cfb8ef0fa8bdbb6d0e75eece8054408b7e64f0')
 
 pkgver() {
 	date +%Y%m%d
@@ -54,12 +56,12 @@ package_manjaro-gnome-settings() {
 	install -Dm644 colors/Adwaita-maia.conf -t ${pkgdir}/usr/share/qt5ct/colors/
 }
 
-
 package_manjaro-gnome-extension-settings() {
 	pkgdesc="Manjaro Linux Gnome extensions settings"
 	optdepends=("manjaro-gnome-settings")
 	conflicts=("manjaro-gnome-extension-settings-$_branch")
 	replaces=("manjaro-gnome-extension-settings-$_branch")
+	install=schemas.install
 
 	cd "$srcdir/$pkgbase"
 
@@ -75,7 +77,7 @@ package_manjaro-gnome-extension-settings() {
 
 	# Material Shell
 	# Has separate schema files in extension schemas folder
-	install -Dm644 schemas/org.gnome.shell.extensions.materialshell.gschema.override -t \
+	install -Dm644 schemas/{layouts,settings}.gschema.override -t \
 		${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 
 	# Night Theme Switcher

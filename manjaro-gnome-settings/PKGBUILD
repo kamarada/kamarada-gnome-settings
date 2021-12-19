@@ -1,12 +1,12 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 # Contributor: Ramon Buldó <rbuldo@gmail.com>
 
+pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
+pkgver=20211219
+pkgrel=1
 _branch=gnome-next
 _oldbranch=19.0
-pkgname=("$pkgbase" "manjaro-gnome-extension-settings" 'manjaro-gdm-branding')
-pkgver=20211214
-pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -65,12 +65,16 @@ package_manjaro-gnome-extension-settings() {
 
 	# add here extensions : for any extension repeat the follow schemas
 
+	# Arc Menu
+	install -Dm644 schemas/org.gnome.shell.extensions.arcmenu.gschema.override -t \
+		${pkgdir}/usr/share/glib-2.0/schemas/
+
 	# Dash to Dock
 	install -Dm644 schemas/org.gnome.shell.extensions.dash-to-dock.gschema.override -t \
 		${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Material Shell
-	# Has 4 custom schema files in extension schemas folder, does not have standard schema XML
+	# Has separate schema files in extension schemas folder
 	install -Dm644 schemas/org.gnome.shell.extensions.materialshell.gschema.override -t \
 		${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 

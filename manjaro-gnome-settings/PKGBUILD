@@ -5,12 +5,10 @@ pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gd
 pkgbase=manjaro-gnome-settings
 pkgver=20211226
 pkgrel=2
-_branch=gnome-next
-_oldbranch=19.0
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
-source=("git+$url.git#branch=$_branch"
+source=("git+$url.git"
 		'git+https://gitlab.manjaro.org/artwork/branding/logo.git'
 		'manjaro-gnome-messages.hook'
 		'manjaro-gnome-messages.script'
@@ -36,8 +34,8 @@ package_manjaro-gnome-settings() {
 				'lighter-gnome: some gnome-settings-daemon components'
 				'papirus-maia-icon-theme: default icons set')
 	provides=("manjaro-desktop-settings")
-	conflicts=("manjaro-gnome-settings-$_branch" "manjaro-gnome-settings-$_oldbranch")
-	replaces=("manjaro-gnome-settings-$_branch")
+	conflicts=("manjaro-gnome-settings-gnome-next" "manjaro-gnome-settings-19.0")
+	replaces=("manjaro-gnome-settings-gnome-next")
 
 	cd "$srcdir/$pkgbase"
 	install -d ${pkgdir}/etc
@@ -57,8 +55,8 @@ package_manjaro-gnome-settings() {
 package_manjaro-gnome-extension-settings() {
 	pkgdesc="Manjaro Linux Gnome extensions settings"
 	optdepends=("manjaro-gnome-settings")
-	conflicts=("manjaro-gnome-extension-settings-$_branch")
-	replaces=("manjaro-gnome-extension-settings-$_branch")
+	conflicts=("manjaro-gnome-extension-settings-gnome-next")
+	replaces=("manjaro-gnome-extension-settings-gnome-next")
 	install=schemas.install
 
 	cd "$srcdir/$pkgbase"

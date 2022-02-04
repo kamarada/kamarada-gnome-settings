@@ -2,7 +2,7 @@
 
 pkgname=manjaro-gnome-assets
 pkgver=20220204
-pkgrel=1
+pkgrel=2
 pkgdesc="Assets for Manjaro GNOME edition"
 arch=('any')
 url="https://www.manjaro.org"
@@ -28,7 +28,9 @@ depends=('adwaita-maia'
          'manjaro-wallpapers-18.0'
          'nerd-fonts-noto-sans-mono'
          'papirus-maia-icon-theme'
+         'qgnomeplatform'
          'qt5ct'
+         'qt6t'
          'ttf-hack'
          'xcursor-breeze'
 )

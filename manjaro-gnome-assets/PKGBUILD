@@ -1,47 +1,42 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
-pkgver=20210518
+pkgver=20220204
 pkgrel=1
-_branch=19.0
-url="www.manjaro.org"
-license=('GPL')
-pkgdesc="Manjaro Gnome assets"
+pkgdesc="Assets for Manjaro GNOME edition"
 arch=('any')
-depends=('manjaro-gnome-settings'
-        'manjaro-gnome-extension-settings'
-        'gnome-shell'
-        'gnome-shell-extensions'
-        'gnome-shell-extension-arcmenu'
-        'gnome-shell-extension-dash-to-dock'
-        'gnome-shell-extension-appindicator'
-        'gnome-shell-extension-dash-to-panel'
-        #'gnome-shell-extension-pop-shell'
-        'gnome-shell-extension-material-shell'
-        'gnome-shell-extension-gsconnect'
-        'gnome-shell-extension-desktop-icons-ng'
-        'gnome-shell-extension-unite'
-        'gnome-shell-extension-gamemode'	
-        'chrome-gnome-shell'
-        'gnome-wallpapers'
-        'matcha-gtk-theme'
-        'xcursor-breeze'
-        'manjaro-base-skel'
-        'ttf-hack'
-        'qgnomeplatform'
-        'kvantum-theme-matchama'
-        'papirus-maia-icon-theme'
-        'illyria-wallpaper'
-        'manjaro-wallpapers-18.0'
-        'manjaro-gdm-branding'
-        'manjaro-gdm-theme'
-        'nerd-fonts-noto-sans-mono'
+url="https://www.manjaro.org"
+license=('GPL')
+depends=('adwaita-maia'
+         'chrome-gnome-shell'
+         'gnome-shell-extension-appindicator'
+         'gnome-shell-extension-arcmenu'
+         'gnome-shell-extension-dash-to-dock'
+         'gnome-shell-extension-dash-to-panel'
+         'gnome-shell-extension-desktop-icons-ng'
+         'gnome-shell-extension-gsconnect'
+         'gnome-shell-extension-material-shell'
+         'gnome-shell-extension-unite'
+         'gnome-shell-extensions'
+         'gnome-wallpapers'
+         'illyria-wallpaper'
+         'manjaro-base-skel'
+         'manjaro-gdm-branding'
+         'manjaro-gdm-theme'
+         'manjaro-gnome-extension-settings'
+         'manjaro-gnome-settings'
+         'manjaro-wallpapers-18.0'
+         'nerd-fonts-noto-sans-mono'
+         'papirus-maia-icon-theme'
+         'qt5ct'
+         'ttf-hack'
+         'xcursor-breeze'
 )
-optdepends=('lighter-gnome: some gnome-settings-daemon components'
-            'noto-fonts-compat'
-            'gnome-shell-extension-pop-shell: for more i3 like tiling')
-conflicts=("$pkgname" "$pkgname-$_branch")
-replaces=("$pkgname-$_branch")
+optdepends=('gnome-shell-extension-pop-shell: for more i3 like tiling'
+            'lighter-gnome: some gnome-settings-daemon components'
+            )
+conflicts=("$pkgname-19.0")
+replaces=("$pkgname-19.0")
 
 pkgver() {
     date +%Y%m%d

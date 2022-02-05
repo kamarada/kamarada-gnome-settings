@@ -1,8 +1,8 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
-pkgver=20220204
-pkgrel=2
+pkgver=20220205
+pkgrel=1
 pkgdesc="Assets for Manjaro GNOME edition"
 arch=('any')
 url="https://www.manjaro.org"
@@ -30,7 +30,7 @@ depends=('adwaita-maia'
          'papirus-maia-icon-theme'
          'qgnomeplatform'
          'qt5ct'
-         'qt6t'
+         'qt6ct'
          'ttf-hack'
          'xcursor-breeze'
 )

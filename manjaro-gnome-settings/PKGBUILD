@@ -3,7 +3,7 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20220331
+pkgver=20220404
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -19,7 +19,7 @@ makedepends=('git')
 sha256sums=('SKIP'
             'SKIP'
             '588f024527bcc54ecb6d6f5d1c6c4879c400ec37cacabd2547540aadf0e0bda7'
-            '898aa633e9dd0fbcf821b1026f6daf08b4b06051899c7cc47079e5cfd55339e1'
+            '133abdada6c6438f6d735f8aceba2b4ccef216892969c58f89445b108af5f266'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
             '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c')
 
@@ -80,8 +80,8 @@ package_manjaro-gnome-extension-settings() {
 		${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 
 	# Night Theme Switcher
-#	install -Dm644 schemas/org.gnome.shell.extensions.nightthemeswitcher.gschema.override -t \
-#		${pkgdir}/usr/share/glib-2.0/schemas/
+	install -Dm644 schemas/org.gnome.shell.extensions.nightthemeswitcher.gschema.override -t \
+		${pkgdir}/usr/share/glib-2.0/schemas/
 
 	# Pop Shell
 	install -Dm644 schemas/org.gnome.shell.extensions.pop-shell.gschema.override -t \

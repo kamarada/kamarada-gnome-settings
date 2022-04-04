@@ -8,7 +8,7 @@ pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
-source=("git+$url.git"
+source=("git+$url.git#branch=42"
 		'git+https://gitlab.manjaro.org/artwork/branding/logo.git'
 		'manjaro-gnome-messages.hook'
 		'manjaro-gnome-messages.script'

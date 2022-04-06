@@ -1,13 +1,19 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
+<<<<<<< HEAD
 pkgver=20220405
+=======
+pkgver=20220404
+>>>>>>> 42
 pkgrel=1
 pkgdesc="Assets for Manjaro GNOME edition"
 arch=('any')
 url="https://www.manjaro.org"
 license=('GPL')
-depends=('adwaita-maia'
+depends=(
+#         'adwaita-maia'
+         'adw-gtk-theme'
          'chrome-gnome-shell'
          'gnome-shell-extension-appindicator'
          'gnome-shell-extension-arcmenu'
@@ -30,8 +36,13 @@ depends=('adwaita-maia'
          'papirus-maia-icon-theme'
          'qgnomeplatform'
          'qgnomeplatform-qt6'
+<<<<<<< HEAD
          'qt5ct'
          'qt6ct'
+=======
+#         'qt5ct'
+#         'qt6ct'
+>>>>>>> 42
          'ttf-hack'
          'xcursor-breeze'
 )

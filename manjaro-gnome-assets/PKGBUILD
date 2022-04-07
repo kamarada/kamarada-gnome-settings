@@ -1,11 +1,7 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 
 pkgname=manjaro-gnome-assets
-<<<<<<< HEAD
-pkgver=20220405
-=======
-pkgver=20220404
->>>>>>> 42
+pkgver=20220406
 pkgrel=1
 pkgdesc="Assets for Manjaro GNOME edition"
 arch=('any')
@@ -36,13 +32,8 @@ depends=(
          'papirus-maia-icon-theme'
          'qgnomeplatform'
          'qgnomeplatform-qt6'
-<<<<<<< HEAD
-         'qt5ct'
-         'qt6ct'
-=======
 #         'qt5ct'
 #         'qt6ct'
->>>>>>> 42
          'ttf-hack'
          'xcursor-breeze'
 )

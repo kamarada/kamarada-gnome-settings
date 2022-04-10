@@ -3,7 +3,7 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20220407
+pkgver=20220410
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -29,8 +29,7 @@ pkgver() {
 
 package_manjaro-gnome-settings() {
 	pkgdesc="Manjaro Linux Gnome settings"
-
-	optdepends=('manjaro-gdm-theme: Branding theme for Gdm'
+	optdepends=('manjaro-gdm-theme: Branding theme for GDM'
 				'lighter-gnome: some gnome-settings-daemon components'
 				'papirus-maia-icon-theme: default icons set')
 	provides=("manjaro-desktop-settings")
@@ -49,10 +48,8 @@ package_manjaro-gnome-settings() {
 		${pkgdir}/usr/share/libalpm/hooks/
 	install -Dm755 ${srcdir}/manjaro-gnome-messages.script \
 		${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
-	install -Dm644 colors/Adwaita-maia-dark.conf -t ${pkgdir}/usr/share/qt5ct/colors/
-	install -Dm644 colors/Adwaita-maia.conf -t ${pkgdir}/usr/share/qt5ct/colors/
-	install -Dm644 colors/Adwaita-maia-dark.conf -t ${pkgdir}/usr/share/qt6ct/colors/
-	install -Dm644 colors/Adwaita-maia.conf -t ${pkgdir}/usr/share/qt5=6ct/colors/
+	install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t ${pkgdir}/usr/share/qt5ct/colors/
+	install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t ${pkgdir}/usr/share/qt6ct/colors/
 }
 
 package_manjaro-gnome-extension-settings() {

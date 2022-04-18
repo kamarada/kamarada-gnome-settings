@@ -30,9 +30,11 @@ pkgver() {
 package_manjaro-gnome-settings() {
 	pkgdesc="Manjaro Linux Gnome settings"
 	depends=('adw-gtk-theme' 'gnome-wallpapers' 'manjaro-base-skel' 'manjaro-gdm-branding'
-           'qgnomeplatform' 'qgnomeplatform-qt6' 'xcursor-breeze')
+           'qgnomeplatform' 'qgnomeplatform-qt6' 'ttf-hack' 'xcursor-breeze')
 	optdepends=('lighter-gnome: disable some gnome-settings-daemon components'
-              'papirus-icon-theme: default icon set')
+              'papirus-icon-theme: default icon set'
+              'manjaro-wallpapers-18.0'
+              'illyria-wallpaper')
 	provides=('manjaro-desktop-settings')
 	conflicts=('manjaro-gnome-settings-gnome-next'
 	           'manjaro-gnome-settings-19.0'

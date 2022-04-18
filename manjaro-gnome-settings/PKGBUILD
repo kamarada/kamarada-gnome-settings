@@ -4,7 +4,7 @@
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
 pkgver=20220418
-pkgrel=1
+pkgrel=2
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -29,12 +29,17 @@ pkgver() {
 
 package_manjaro-gnome-settings() {
 	pkgdesc="Manjaro Linux Gnome settings"
-	optdepends=('manjaro-gdm-theme: Branding theme for GDM'
-				'lighter-gnome: some gnome-settings-daemon components'
-				'papirus-maia-icon-theme: default icons set')
-	provides=("manjaro-desktop-settings")
-	conflicts=("manjaro-gnome-settings-gnome-next" "manjaro-gnome-settings-19.0")
-	replaces=("manjaro-gnome-settings-gnome-next")
+	depends=('adw-gtk-theme' 'gnome-wallpapers' 'manjaro-base-skel' 'manjaro-gdm-branding'
+           'qgnomeplatform' 'qgnomeplatform-qt6' 'xcursor-breeze')
+	optdepends=('lighter-gnome: disable some gnome-settings-daemon components'
+              'papirus-icon-theme: default icon set')
+	provides=('manjaro-desktop-settings')
+	conflicts=('manjaro-gnome-settings-gnome-next'
+	           'manjaro-gnome-settings-19.0'
+	           'manjaro-gnome-assets'
+	           'manjaro-gdm-theme')
+	replaces=('manjaro-gnome-settings-gnome-next'
+	          'manjaro-gnome-assets')
 
 	cd "$srcdir/$pkgbase"
 	install -d ${pkgdir}/etc
@@ -54,9 +59,10 @@ package_manjaro-gnome-settings() {
 
 package_manjaro-gnome-extension-settings() {
 	pkgdesc="Manjaro Linux Gnome extensions settings"
-	depends=("manjaro-gnome-settings")
-	conflicts=("manjaro-gnome-extension-settings-gnome-next")
-	replaces=("manjaro-gnome-extension-settings-gnome-next")
+	depends=('gnome-shell-extensions' 'manjaro-gnome-settings')
+	optdepends=('chrome-gnome-shell: browser connecter for extensions website')
+	conflicts=('manjaro-gnome-extension-settings-gnome-next')
+	replaces=('manjaro-gnome-extension-settings-gnome-next')
 	install=schemas.install
 
 	cd "$srcdir/$pkgbase"

@@ -3,7 +3,7 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20220513
+pkgver=20220517
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -30,11 +30,11 @@ pkgver() {
 package_manjaro-gnome-settings() {
 	pkgdesc="Manjaro Linux Gnome settings"
 	depends=('adw-gtk-theme' 'gnome-wallpapers' 'manjaro-base-skel' 'manjaro-gdm-branding'
-           'qgnomeplatform-qt5' 'qgnomeplatform-qt6' 'ttf-hack' 'xcursor-breeze')
+             'qgnomeplatform-qt5' 'qgnomeplatform-qt6' 'ttf-hack' 'xcursor-breeze')
 	optdepends=('lighter-gnome: disable some gnome-settings-daemon components'
-              'papirus-icon-theme: default icon set'
-              'manjaro-wallpapers-18.0'
-              'illyria-wallpaper')
+                'papirus-icon-theme: default icon set'
+                'manjaro-wallpapers-18.0'
+                'illyria-wallpaper')
 	provides=('manjaro-desktop-settings')
 	conflicts=('manjaro-gnome-settings-gnome-next'
 	           'manjaro-gnome-settings-19.0'
@@ -71,32 +71,32 @@ package_manjaro-gnome-extension-settings() {
 
 	# add here extensions : for any extension repeat the follow schemas
 
-	# Arc Menu
+	# arc-menu
 	install -Dm644 schemas/org.gnome.shell.extensions.arcmenu.gschema.override -t \
 		${pkgdir}/usr/share/glib-2.0/schemas/
 
-	# Dash to Dock
+	# dash-to-dock
 	install -Dm644 schemas/org.gnome.shell.extensions.dash-to-dock.gschema.override -t \
 		${pkgdir}/usr/share/glib-2.0/schemas/
 
-	# Material Shell
+	# gnome-ui-tune
+	install -Dm644 schemas/org.gnome.shell.extensions.gnome-ui-tune.gschema.override -t \
+		${pkgdir}/usr/share/glib-2.0/schemas/
+
+	# material-shell
 	# Has separate schema files in extension schemas folder
 	install -Dm644 schemas/{layouts,settings}.gschema.override -t \
 		${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 
-	# Night Theme Switcher
+	# nightthemeswitcher
 	install -Dm644 schemas/org.gnome.shell.extensions.nightthemeswitcher.gschema.override -t \
 		${pkgdir}/usr/share/glib-2.0/schemas/
 
-	# Pop Shell
+	# pop-shell
 	install -Dm644 schemas/org.gnome.shell.extensions.pop-shell.gschema.override -t \
 		${pkgdir}/usr/share/glib-2.0/schemas/
 
 	install -Dm755 scripts/apply-tiling-settings -t ${pkgdir}/usr/bin/
-
-	# Vertical Overview
-	install -Dm644 schemas/org.gnome.shell.extensions.vertical-overview.gschema.override -t \
-		${pkgdir}/usr/share/glib-2.0/schemas/
 }
 
 package_manjaro-gdm-branding() {

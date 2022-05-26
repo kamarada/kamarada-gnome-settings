@@ -3,8 +3,8 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20220519
-pkgrel=3
+pkgver=20220526
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -96,7 +96,7 @@ package_manjaro-gnome-extension-settings() {
 	install -Dm644 schemas/org.gnome.shell.extensions.pop-shell.gschema.override -t \
 		${pkgdir}/usr/share/glib-2.0/schemas/
 
-	install -Dm755 scripts/apply-tiling-settings -t ${pkgdir}/usr/bin/
+	install -Dm755 scripts/apply-folder-settings -t ${pkgdir}/usr/bin/
 }
 
 package_manjaro-gdm-branding() {

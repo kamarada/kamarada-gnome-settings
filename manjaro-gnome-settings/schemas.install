@@ -1,5 +1,7 @@
 post_install() {
   glib-compile-schemas /usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
+
+  dconf update
 }
 
 post_upgrade() {

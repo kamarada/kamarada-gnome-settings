@@ -3,7 +3,7 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20220526
+pkgver=20220527
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -47,9 +47,11 @@ package_manjaro-gnome-settings() {
 	install -d ${pkgdir}/etc
 	cp -r skel ${pkgdir}/etc
 
-	install -Dm644 schemas/app-folder-settings -t ${pkgdir}/usr/share/gnome-shell/
 	install -Dm644 schemas/99_manjaro-settings.gschema.override -t \
 		${pkgdir}/usr/share/glib-2.0/schemas/
+
+	install -Dm644 dconf/user -t "$pkgdir/etc/dconf/profile/"
+	install -Dm644 dconf/00_app_folder_defaults -t "$pkgdir/etc/dconf/db/site.d/"
 
 	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook -t \
 		${pkgdir}/usr/share/libalpm/hooks/
@@ -95,8 +97,6 @@ package_manjaro-gnome-extension-settings() {
 	# pop-shell
 	install -Dm644 schemas/org.gnome.shell.extensions.pop-shell.gschema.override -t \
 		${pkgdir}/usr/share/glib-2.0/schemas/
-
-	install -Dm755 scripts/apply-folder-settings -t ${pkgdir}/usr/bin/
 }
 
 package_manjaro-gdm-branding() {

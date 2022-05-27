@@ -43,22 +43,22 @@ package_manjaro-gnome-settings() {
 	replaces=('manjaro-gnome-settings-gnome-next'
 	          'manjaro-gnome-assets')
 
-	cd ${srcdir}/${pkgbase}
+	cd "$srcdir/$pkgbase"
+	install -d ${pkgdir}/etc
+	cp -r skel ${pkgdir}/etc
+
 	install -Dm644 schemas/99_manjaro-settings.gschema.override -t \
 		${pkgdir}/usr/share/glib-2.0/schemas/
 
-	install -Dm644 dconf/user -t ${pkgdir}/etc/dconf/profile/
-	install -Dm644 dconf/00_app_folder_defaults -t ${pkgdir}/etc/dconf/db/site.d/
+	install -Dm644 dconf/user -t "$pkgdir/etc/dconf/profile/"
+	install -Dm644 dconf/00_app_folder_defaults -t "$pkgdir/etc/dconf/db/site.d/"
 
 	install -Dm644 ${srcdir}/manjaro-gnome-messages.hook -t \
 		${pkgdir}/usr/share/libalpm/hooks/
 	install -Dm755 ${srcdir}/manjaro-gnome-messages.script \
 		${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
-
 #	install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t ${pkgdir}/usr/share/qt5ct/colors/
 #	install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t ${pkgdir}/usr/share/qt6ct/colors/
-
-	cp -r skel ${pkgdir}/etc/
 }
 
 package_manjaro-gnome-extension-settings() {
@@ -69,7 +69,7 @@ package_manjaro-gnome-extension-settings() {
 	replaces=('manjaro-gnome-extension-settings-gnome-next')
 	install=schemas.install
 
-	cd ${srcdir}/${pkgbase}
+	cd "$srcdir/$pkgbase"
 
 	# add here extensions : for any extension repeat the follow schemas
 
@@ -103,7 +103,7 @@ package_manjaro-gdm-branding() {
 	pkgdesc="Manjaro GDM branding"
 	depends=('gnome-shell' 'dconf')
 
-	cd ${srcdir}/${pkgbase}
+	cd "$srcdir/$pkgbase"
 	install -Dm644 schemas/gdm -t ${pkgdir}/etc/dconf/profile/
 	install -Dm644 schemas/10_manjaro-gdm-branding -t ${pkgdir}/etc/dconf/db/gdm.d/
 

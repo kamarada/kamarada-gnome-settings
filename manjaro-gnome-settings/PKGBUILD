@@ -3,7 +3,7 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20220606
+pkgver=20220713
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -64,7 +64,7 @@ package_manjaro-gnome-settings() {
 package_manjaro-gnome-extension-settings() {
 	pkgdesc="Manjaro Linux Gnome extensions settings"
 	depends=('gnome-shell-extensions' 'manjaro-gnome-settings')
-	optdepends=('chrome-gnome-shell: browser connecter for extensions website')
+	optdepends=('gnome-browser-connector: browser connecter for extensions website')
 	conflicts=('manjaro-gnome-extension-settings-gnome-next')
 	replaces=('manjaro-gnome-extension-settings-gnome-next')
 	install=schemas.install

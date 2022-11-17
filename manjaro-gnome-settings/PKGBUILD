@@ -3,7 +3,7 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20220927
+pkgver=20221117
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -47,6 +47,7 @@ package_manjaro-gnome-settings() {
     ${pkgdir}/usr/share/glib-2.0/schemas/
 
   install -Dm644 dconf/user -t ${pkgdir}/etc/dconf/profile/
+  install -Dm644 dconf/gdm -t ${pkgdir}/etc/dconf/profile/
   install -Dm644 dconf/00_app_folder_defaults -t ${pkgdir}/etc/dconf/db/local.d/
 
   install -Dm644 ${srcdir}/manjaro-gnome-messages.hook -t \

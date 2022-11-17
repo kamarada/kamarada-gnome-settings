@@ -4,7 +4,7 @@
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
 pkgver=20221117
-pkgrel=1
+pkgrel=2
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -104,7 +104,6 @@ package_manjaro-gdm-branding() {
   depends=('gnome-shell' 'dconf')
 
   cd ${srcdir}/${pkgbase}
-  install -Dm644 dconf/gdm -t ${pkgdir}/etc/dconf/profile/
   install -Dm644 dconf/10_manjaro-gdm-branding -t ${pkgdir}/etc/dconf/db/gdm.d/
 
   install -Dm644 ${srcdir}/logo/logo_text_white_48px.png -t \

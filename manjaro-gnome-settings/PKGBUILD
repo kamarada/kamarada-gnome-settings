@@ -3,8 +3,8 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20221117
-pkgrel=2
+pkgver=20221120
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -14,13 +14,15 @@ source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-sett
         'manjaro-gnome-messages.hook'
         'manjaro-gnome-messages.script'
         'manjaro-gdm-branding-install.hook'
-        'manjaro-gdm-branding-remove.hook')
+        'manjaro-gdm-branding-remove.hook'
+        'watermark.png')
 sha256sums=('SKIP'
             'SKIP'
             '588f024527bcc54ecb6d6f5d1c6c4879c400ec37cacabd2547540aadf0e0bda7'
             '133abdada6c6438f6d735f8aceba2b4ccef216892969c58f89445b108af5f266'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
-            '9696a9efdb9c36c99f00eae025405657cbb036cee2b18c7d2039598e8f57e05c')
+            'affee58e9d547065936dd61bdf4a8528455ce6f604b9af1d959f3b572dfecb3e'
+            '31032e888cc8402907e2ef24f95959b9fa0f3547bb076b9fe4700aab79556739')
 
 pkgver() {
   date +%Y%m%d
@@ -106,8 +108,8 @@ package_manjaro-gdm-branding() {
   cd ${srcdir}/${pkgbase}
   install -Dm644 dconf/10_manjaro-gdm-branding -t ${pkgdir}/etc/dconf/db/gdm.d/
 
-  install -Dm644 ${srcdir}/logo/logo_text_white_48px.png -t \
-    ${pkgdir}/usr/share/icons/manjaro/maia/
+  install -Dm644 ${srcdir}/watermark.png -t \
+    ${pkgdir}/usr/share/icons/manjaro/white/
   install -Dm644 ${srcdir}/manjaro-gdm-branding-install.hook -t \
     ${pkgdir}/usr/share/libalpm/hooks/
   install -Dm644 ${srcdir}/manjaro-gdm-branding-remove.hook -t \

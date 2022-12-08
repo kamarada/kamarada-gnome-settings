@@ -3,7 +3,7 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20221120
+pkgver=20221208
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -46,21 +46,21 @@ package_manjaro-gnome-settings() {
 
   cd ${srcdir}/${pkgbase}
   install -Dm644 schemas/99_manjaro-settings.gschema.override -t \
-    ${pkgdir}/usr/share/glib-2.0/schemas/
+    "${pkgdir}"/usr/share/glib-2.0/schemas/
 
-  install -Dm644 dconf/user -t ${pkgdir}/etc/dconf/profile/
-  install -Dm644 dconf/gdm -t ${pkgdir}/etc/dconf/profile/
-  install -Dm644 dconf/00_app_folder_defaults -t ${pkgdir}/etc/dconf/db/local.d/
+  install -Dm644 dconf/user -t "${pkgdir}"/etc/dconf/profile/
+  install -Dm644 dconf/gdm -t "${pkgdir}"/etc/dconf/profile/
+  install -Dm644 dconf/00_app_folder_defaults -t "${pkgdir}"/etc/dconf/db/local.d/
 
   install -Dm644 ${srcdir}/manjaro-gnome-messages.hook -t \
-    ${pkgdir}/usr/share/libalpm/hooks/
+    "${pkgdir}"/usr/share/libalpm/hooks/
   install -Dm755 ${srcdir}/manjaro-gnome-messages.script \
-    ${pkgdir}/usr/share/libalpm/scripts/manjaro-gnome-messages
+    "${pkgdir}"/usr/share/libalpm/scripts/manjaro-gnome-messages
 
-#  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t ${pkgdir}/usr/share/qt5ct/colors/
-#  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t ${pkgdir}/usr/share/qt6ct/colors/
+#  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t "${pkgdir}"/usr/share/qt5ct/colors/
+#  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t "${pkgdir}"/usr/share/qt6ct/colors/
 
-  cp -r skel ${pkgdir}/etc/
+  cp -r skel "${pkgdir}"/etc/
 }
 
 package_manjaro-gnome-extension-settings() {
@@ -73,32 +73,26 @@ package_manjaro-gnome-extension-settings() {
 
   cd ${srcdir}/${pkgbase}
 
-  # add here extensions : for any extension repeat the follow schemas
+  # Extension overrides
 
-  # arc-menu
-  install -Dm644 schemas/org.gnome.shell.extensions.arcmenu.gschema.override -t \
-    ${pkgdir}/usr/share/glib-2.0/schemas/
+  schemas=(
+    org.gnome.shell.extensions.arcmenu  # arc-menu
+    org.gnome.shell.extensions.custom-accent-colors  # custom-accent-colors
+    org.gnome.shell.extensions.dash-to-dock  # dash-to-dock
+    org.gnome.shell.extensions.gnome-ui-tune  # gnome-ui-tune
+    org.gnome.shell.extensions.nightthemeswitcher  # nightthemeswitcher
+    org.gnome.shell.extensions.pop-shell  # pop-shell
+    org.gnome.shell.extensions.user-theme  # user-theme
+  )
 
-  # dash-to-dock
-  install -Dm644 schemas/org.gnome.shell.extensions.dash-to-dock.gschema.override -t \
-    ${pkgdir}/usr/share/glib-2.0/schemas/
-
-  # gnome-ui-tune
-  install -Dm644 schemas/org.gnome.shell.extensions.gnome-ui-tune.gschema.override -t \
-    ${pkgdir}/usr/share/glib-2.0/schemas/
+  for schema in ${schemas[*]}; do
+    install -Dm644 schemas/${schema}.gschema.override -t "${pkgdir}"/usr/share/glib-2.0/schemas/
+  done
 
   # material-shell
   # Has separate schema files in extension schemas folder
   install -Dm644 schemas/{layouts,settings}.gschema.override -t \
-    ${pkgdir}/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
-
-  # nightthemeswitcher
-  install -Dm644 schemas/org.gnome.shell.extensions.nightthemeswitcher.gschema.override -t \
-    ${pkgdir}/usr/share/glib-2.0/schemas/
-
-  # pop-shell
-  install -Dm644 schemas/org.gnome.shell.extensions.pop-shell.gschema.override -t \
-    ${pkgdir}/usr/share/glib-2.0/schemas/
+    "${pkgdir}"/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 }
 
 package_manjaro-gdm-branding() {
@@ -106,14 +100,14 @@ package_manjaro-gdm-branding() {
   depends=('gnome-shell' 'dconf')
 
   cd ${srcdir}/${pkgbase}
-  install -Dm644 dconf/10_manjaro-gdm-branding -t ${pkgdir}/etc/dconf/db/gdm.d/
+  install -Dm644 dconf/10_manjaro-gdm-branding -t "${pkgdir}"/etc/dconf/db/gdm.d/
 
   install -Dm644 ${srcdir}/watermark.png -t \
-    ${pkgdir}/usr/share/icons/manjaro/white/
+    "${pkgdir}"/usr/share/icons/manjaro/white/
   install -Dm644 ${srcdir}/manjaro-gdm-branding-install.hook -t \
-    ${pkgdir}/usr/share/libalpm/hooks/
+    "${pkgdir}"/usr/share/libalpm/hooks/
   install -Dm644 ${srcdir}/manjaro-gdm-branding-remove.hook -t \
-    ${pkgdir}/usr/share/libalpm/hooks/
+    "${pkgdir}"/usr/share/libalpm/hooks/
 }
 
 #package_manjaro-gnome-minimal-settings() {

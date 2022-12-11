@@ -4,8 +4,8 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20221210
-pkgrel=2
+pkgver=20221211
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -34,13 +34,13 @@ package_manjaro-gnome-settings() {
   depends=('adw-gtk-theme' 'manjaro-gnome-backgrounds' 'manjaro-base-skel' 'manjaro-gdm-branding'
            'papirus-icon-theme' 'ttf-hack' 'xcursor-breeze')
   optdepends=('gnome-shell-maia: GNOME Shell Maia theme'
-              'kvantum: use custom themes for Qt applications'
+              'kvantum-manjaro: for KvLibadwaitaMaia theme'
               'lighter-gnome: disable some gnome-settings-daemon components'
               'papirus-maia-icon-theme: for Maia folder color'
-              'qgnomeplatform-qt5: option for Qt 5 Adwaita theme (blue accent only) '
-              'qgnomeplatform-qt6: option for Qt 6 Adwaita theme (blue accent only'
-              'qt5ct: option for Qt 5 theming'
-              'qt6ct: option for Qt 6 themeing')
+              'qgnomeplatform-qt5: Qt 5 Adwaita theme (blue accent only)'
+              'qgnomeplatform-qt6: Qt 6 Adwaita theme (blue accent only)'
+              'qt5ct: Qt 5 theming'
+              'qt6ct: Qt 6 theming')
   provides=('manjaro-desktop-settings')
   conflicts=('manjaro-gnome-settings-gnome-next'
              'manjaro-gnome-settings-19.0'

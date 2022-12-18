@@ -4,8 +4,8 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20221211
-pkgrel=3
+pkgver=20221218
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -45,9 +45,14 @@ package_manjaro-gnome-settings() {
   conflicts=('manjaro-gnome-settings-gnome-next'
              'manjaro-gnome-settings-19.0'
              'manjaro-gnome-assets'
-             'manjaro-gdm-theme')
+             'manjaro-gdm-theme'
+             'firefox-gnome-theme-maia'
+             'adwaita-maia')
   replaces=('manjaro-gnome-settings-gnome-next'
-            'manjaro-gnome-assets')
+            'manjaro-gnome-assets'
+            'manjaro-gdm-theme'
+            'firefox-gnome-theme-maia'
+            'adwaita-maia')
 
   cd ${srcdir}/${pkgbase}
   install -Dm644 schemas/99_manjaro-settings.gschema.override -t \

@@ -4,8 +4,8 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20221218
-pkgrel=2
+pkgver=20221220
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -31,8 +31,8 @@ pkgver() {
 
 package_manjaro-gnome-settings() {
   pkgdesc="Manjaro Linux Gnome settings"
-  depends=('adw-gtk-theme' 'manjaro-gnome-backgrounds' 'manjaro-base-skel' 'manjaro-gdm-branding'
-           'papirus-icon-theme' 'ttf-hack' 'xcursor-breeze')
+  depends=('adw-gtk-theme' 'bibata-cursor-theme' 'manjaro-gnome-backgrounds'
+           'manjaro-base-skel' 'manjaro-gdm-branding' 'papirus-icon-theme' 'ttf-hack')
   optdepends=('gnome-shell-maia: GNOME Shell Maia theme'
               'kvantum-manjaro: for KvLibadwaitaMaia theme'
               'lighter-gnome: disable some gnome-settings-daemon components'

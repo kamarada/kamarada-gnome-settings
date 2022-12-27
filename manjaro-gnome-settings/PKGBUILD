@@ -4,8 +4,8 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20221220
-pkgrel=2
+pkgver=20221227
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -49,10 +49,7 @@ package_manjaro-gnome-settings() {
              'firefox-gnome-theme-maia'
              'adwaita-maia')
   replaces=('manjaro-gnome-settings-gnome-next'
-            'manjaro-gnome-assets'
-            'manjaro-gdm-theme'
-            'firefox-gnome-theme-maia'
-            'adwaita-maia')
+            'manjaro-gnome-assets')
 
   cd ${srcdir}/${pkgbase}
   install -Dm644 schemas/99_manjaro-settings.gschema.override -t \

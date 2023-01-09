@@ -4,7 +4,7 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20221227
+pkgver=20230109
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
@@ -98,7 +98,7 @@ package_manjaro-gnome-extension-settings() {
 
   # material-shell
   # Has separate schema files in extension schemas folder
-  install -Dm644 schemas/{layouts,settings}.gschema.override -t \
+  install -Dm644 schemas/org.gnome.shell.extensions.materialshell.{layouts,theme}.gschema.override -t \
     "${pkgdir}"/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 }
 

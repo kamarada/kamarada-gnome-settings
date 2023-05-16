@@ -30,7 +30,7 @@ pkgver() {
 }
 
 package_manjaro-gnome-settings() {
-  pkgdesc="Manjaro Linux Gnome settings"
+  pkgdesc="Manjaro Linux GNOME settings"
   depends=('adw-gtk-theme' 'bibata-cursor-theme' 'manjaro-gnome-backgrounds'
            'manjaro-base-skel' 'manjaro-gdm-branding' 'papirus-icon-theme' 'ttf-hack')
   optdepends=('gnome-shell-maia: GNOME Shell Maia theme'
@@ -71,7 +71,7 @@ package_manjaro-gnome-settings() {
 }
 
 package_manjaro-gnome-extension-settings() {
-  pkgdesc="Manjaro Linux Gnome extensions settings"
+  pkgdesc="Manjaro Linux GNOME extensions settings"
   depends=('gnome-shell-extensions' 'manjaro-gnome-settings')
   optdepends=('gnome-browser-connector: browser connecter for extensions website')
   conflicts=('manjaro-gnome-extension-settings-gnome-next')

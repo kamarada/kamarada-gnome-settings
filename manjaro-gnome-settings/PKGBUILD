@@ -83,13 +83,13 @@ package_manjaro-gnome-extension-settings() {
   # Extension overrides
 
   schemas=(
-    org.gnome.shell.extensions.arcmenu  # arc-menu
-    org.gnome.shell.extensions.custom-accent-colors  # custom-accent-colors
-    org.gnome.shell.extensions.dash-to-dock  # dash-to-dock
-    org.gnome.shell.extensions.gnome-ui-tune  # gnome-ui-tune
-    org.gnome.shell.extensions.nightthemeswitcher  # nightthemeswitcher
-    org.gnome.shell.extensions.pop-shell  # pop-shell
-    org.gnome.shell.extensions.user-theme  # user-theme
+    org.gnome.shell.extensions.arcmenu  # ArcMenu
+    org.gnome.shell.extensions.custom-accent-colors  # Custom Accent Colors
+    org.gnome.shell.extensions.dash-to-dock  # Dash to Dock
+    org.gnome.shell.extensions.gnome-ui-tune  # GNOME 4x UI Improvements
+    org.gnome.shell.extensions.nightthemeswitcher  # Night Theme Switcher
+    org.gnome.shell.extensions.pop-shell  # Pop Shell
+    org.gnome.shell.extensions.user-theme  # User Themes
   )
 
   for schema in ${schemas[*]}; do

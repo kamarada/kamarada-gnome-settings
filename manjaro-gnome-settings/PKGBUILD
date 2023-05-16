@@ -96,7 +96,7 @@ package_manjaro-gnome-extension-settings() {
     install -Dm644 schemas/${schema}.gschema.override -t "${pkgdir}"/usr/share/glib-2.0/schemas/
   done
 
-  # material-shell
+  # Material Shell
   # Has separate schema files in extension schemas folder
   install -Dm644 schemas/org.gnome.shell.extensions.materialshell.{layouts,theme}.gschema.override -t \
     "${pkgdir}"/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/

@@ -5,7 +5,7 @@ post_install() {
 
   # Set extension version validation back to default value
   # We don't want incompatible extensions being loaded and causing breakage
-  gsettings set org.gnome.shell disable-extension-version-validation 'false'
+  dbus-launch gsettings set org.gnome.shell disable-extension-version-validation 'false'
 }
 
 post_upgrade() {

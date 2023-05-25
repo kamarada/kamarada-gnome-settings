@@ -1,0 +1,8 @@
+post_upgrade() {
+
+  # No package owns 20-kill-user-processes.conf
+  f=/etc/systemd/logind.conf.d/20-kill-user-processes.conf
+  if [ -f "${f}" ]; then
+    rm -f "${f}"
+  fi
+}

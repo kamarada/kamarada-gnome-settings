@@ -5,7 +5,7 @@
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
 pkgver=20230525
-pkgrel=1
+pkgrel=2
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -50,6 +50,8 @@ package_manjaro-gnome-settings() {
              'adwaita-maia')
   replaces=('manjaro-gnome-settings-gnome-next'
             'manjaro-gnome-assets')
+  backup=('etc/profile.d/qt-theming.sh')
+  install='settings.install'
 
   cd ${srcdir}/${pkgbase}
   install -Dm644 schemas/99_manjaro-settings.gschema.override -t \
@@ -64,10 +66,19 @@ package_manjaro-gnome-settings() {
   install -Dm755 ${srcdir}/manjaro-gnome-messages.script \
     "${pkgdir}"/usr/share/libalpm/scripts/manjaro-gnome-messages
 
+  # Kvantum
+  install -Dm644 xdg/Kvantum/kvantum.kvconfig -t "${pkgdir}/etc/xdg/Kvantum/"
+
+  # Logind
+  install -Dm644 systemd/logind.conf.d/21-kill-user-processes.conf -t \
+    "${pkgdir}/etc/systemd/logind.conf.d/"
+
+  # Misc defaults
+  cp -r profile.d skel "${pkgdir}"/etc/
+
+  # Qt5Ct (not currently used)
 #  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t "${pkgdir}"/usr/share/qt5ct/colors/
 #  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t "${pkgdir}"/usr/share/qt6ct/colors/
-
-  cp -r skel profile.d "${pkgdir}"/etc/
 }
 
 package_manjaro-gnome-extension-settings() {

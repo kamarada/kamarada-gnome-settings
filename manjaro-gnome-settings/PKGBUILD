@@ -4,8 +4,8 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20230517
-pkgrel=2
+pkgver=20230525
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -67,7 +67,7 @@ package_manjaro-gnome-settings() {
 #  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t "${pkgdir}"/usr/share/qt5ct/colors/
 #  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t "${pkgdir}"/usr/share/qt6ct/colors/
 
-  cp -r skel "${pkgdir}"/etc/
+  cp -r skel profile.d "${pkgdir}"/etc/
 }
 
 package_manjaro-gnome-extension-settings() {

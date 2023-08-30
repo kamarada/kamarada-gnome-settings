@@ -4,8 +4,8 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20230525
-pkgrel=2
+pkgver=20230830
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
@@ -37,8 +37,6 @@ package_manjaro-gnome-settings() {
               'kvantum-manjaro: for KvLibadwaitaMaia theme'
               'lighter-gnome: disable some gnome-settings-daemon components'
               'papirus-maia-icon-theme: for Maia folder color'
-              'qgnomeplatform-qt5: Qt 5 Adwaita theme (blue accent only)'
-              'qgnomeplatform-qt6: Qt 6 Adwaita theme (blue accent only)'
               'qt5ct: Qt 5 theming'
               'qt6ct: Qt 6 theming')
   provides=('manjaro-desktop-settings')
@@ -99,18 +97,12 @@ package_manjaro-gnome-extension-settings() {
     org.gnome.shell.extensions.dash-to-dock  # Dash to Dock
     org.gnome.shell.extensions.gnome-ui-tune  # GNOME 4x UI Improvements
     org.gnome.shell.extensions.nightthemeswitcher  # Night Theme Switcher
-    org.gnome.shell.extensions.pop-shell  # Pop Shell
     org.gnome.shell.extensions.user-theme  # User Themes
   )
 
   for schema in ${schemas[*]}; do
     install -Dm644 schemas/${schema}.gschema.override -t "${pkgdir}"/usr/share/glib-2.0/schemas/
   done
-
-  # Material Shell
-  # Has separate schema files in extension schemas folder
-  install -Dm644 schemas/org.gnome.shell.extensions.materialshell.{layouts,theme}.gschema.override -t \
-    "${pkgdir}"/usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
 }
 
 package_manjaro-gdm-branding() {

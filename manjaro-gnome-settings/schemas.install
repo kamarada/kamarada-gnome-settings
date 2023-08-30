@@ -1,8 +1,5 @@
 post_install() {
 
-  # Manually compile Material Shell local schemas
-  glib-compile-schemas /usr/share/gnome-shell/extensions/material-shell@papyelgringo/schemas/
-
   # Set extension version validation back to default value
   # We don't want incompatible extensions being loaded and causing breakage
   dbus-launch gsettings set org.gnome.shell disable-extension-version-validation 'false'

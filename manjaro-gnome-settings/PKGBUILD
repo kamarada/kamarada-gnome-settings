@@ -25,7 +25,8 @@ sha256sums=('SKIP'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
             'affee58e9d547065936dd61bdf4a8528455ce6f604b9af1d959f3b572dfecb3e'
             '31032e888cc8402907e2ef24f95959b9fa0f3547bb076b9fe4700aab79556739')
-validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
+validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8' # Mark Wagie <mark@manjaro.org>
+              '22C903DE964E6FE321656E318DB9F8C18DF53602') # Stefano Capitani <stefano@manjaro.org>
 
 pkgver() {
   date +%Y%m%d

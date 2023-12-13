@@ -1,11 +1,12 @@
 post_install() {
 
+  # Don't launch new dbus session
+  PID="$(pgrep gnome-session | head -n 1)"
+  export DBUS_SESSION_BUS_ADDRESS="$(grep -zoP '(?<=DBUS_SESSION_BUS_ADDRESS=).*' /proc/${PID}/environ | tr '\0' '\n')"
+
   # Set extension version validation back to default value as
   # we don't want incompatible extensions being loaded and causing breakage
-  # Don't launch new dbus session
-  PID="$(pgrep gnome-session)"
-  export DBUS_SESSION_BUS_ADDRESS="$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/${PID}/environ)"
-  gsettings set org.gnome.shell disable-extension-version-validation 'false'
+  dbus-launch gsettings set org.gnome.shell disable-extension-version-validation 'false'
 }
 
 post_upgrade() {

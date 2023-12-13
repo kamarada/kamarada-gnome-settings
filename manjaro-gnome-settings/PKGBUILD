@@ -4,13 +4,14 @@
 
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
-pkgver=20231014
-pkgrel=2
+pkgver=20231213
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
 makedepends=('git')
-source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git"
+_commit=06b84d97d897f8a507f490fcc6c64fef725b760b  # branch/master
+source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=$_commit?signed"
         'git+https://gitlab.manjaro.org/artwork/branding/logo.git'
         'manjaro-gnome-messages.hook'
         'manjaro-gnome-messages.script'
@@ -24,6 +25,7 @@ sha256sums=('SKIP'
             '37c9338b05824d0371f09fa3f19df13902c436367d4bf01d55ebeae4a4966060'
             'affee58e9d547065936dd61bdf4a8528455ce6f604b9af1d959f3b572dfecb3e'
             '31032e888cc8402907e2ef24f95959b9fa0f3547bb076b9fe4700aab79556739')
+validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
 
 pkgver() {
   date +%Y%m%d

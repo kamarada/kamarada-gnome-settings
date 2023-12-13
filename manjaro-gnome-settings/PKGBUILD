@@ -5,12 +5,12 @@
 pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
 pkgbase=manjaro-gnome-settings
 pkgver=20231213
-pkgrel=2
+pkgrel=3
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL')
 makedepends=('git')
-_commit=06b84d97d897f8a507f490fcc6c64fef725b760b  # branch/master
+_commit=9479236e1cf67bb40487960cc95119d5645a2fb3  # branch/master
 source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=$_commit?signed"
         'git+https://gitlab.manjaro.org/artwork/branding/logo.git'
         'manjaro-gnome-messages.hook'

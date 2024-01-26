@@ -8,7 +8,7 @@ pkgver=20240114
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
-license=('GPL')
+license=('GPL-3.0-or-later')
 makedepends=('git')
 _commit=80133391b1a2fad1366196077488dd2c2a70a8f0  # branch/master
 source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=$_commit?signed"

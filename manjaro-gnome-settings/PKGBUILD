@@ -67,7 +67,6 @@ package_manjaro-gnome-settings() {
     'manjaro-gnome-settings-gnome-next'
     'manjaro-gnome-assets'
   )
-  backup=('etc/profile.d/qt-theming.sh')
   install='settings.install'
 
   cd "${pkgbase}"

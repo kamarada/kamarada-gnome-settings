@@ -2,7 +2,11 @@
 # Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
 # Contributor: Ramon Buldó <rbuldo@gmail.com>
 
-pkgname=('manjaro-gnome-settings' 'manjaro-gnome-extension-settings' 'manjaro-gdm-branding')
+pkgname=(
+  'manjaro-gnome-settings'
+  'manjaro-gnome-extension-settings'
+  'manjaro-gdm-branding'
+)
 pkgbase=manjaro-gnome-settings
 pkgver=20240510
 pkgrel=1
@@ -34,22 +38,35 @@ pkgver() {
 
 package_manjaro-gnome-settings() {
   pkgdesc="Manjaro Linux GNOME settings"
-  depends=('adw-gtk-theme' 'bibata-cursor-theme' 'manjaro-gnome-backgrounds'
-           'manjaro-base-skel' 'manjaro-gdm-branding' 'papirus-icon-theme' 'ttf-hack')
-  optdepends=('kvantum-manjaro: for KvLibadwaitaMaia theme'
-              'lighter-gnome: disable some gnome-settings-daemon components'
-              'papirus-maia-icon-theme: for Maia folder color'
-              'qt5ct: Qt 5 theming'
-              'qt6ct: Qt 6 theming')
+  depends=(
+    'adw-gtk-theme'
+    'bibata-cursor-theme'
+    'manjaro-gnome-backgrounds'
+    'manjaro-base-skel'
+    'manjaro-gdm-branding'
+    'papirus-icon-theme'
+    'ttf-hack'
+  )
+  optdepends=(
+    'kvantum-manjaro: for KvLibadwaitaMaia theme'
+    'lighter-gnome: disable some gnome-settings-daemon components'
+    'papirus-maia-icon-theme: for Maia folder color'
+    'qt5ct: Qt 5 theming'
+    'qt6ct: Qt 6 theming'
+  )
   provides=('manjaro-desktop-settings')
-  conflicts=('manjaro-gnome-settings-gnome-next'
-             'manjaro-gnome-settings-19.0'
-             'manjaro-gnome-assets'
-             'manjaro-gdm-theme'
-             'firefox-gnome-theme-maia'
-             'adwaita-maia')
-  replaces=('manjaro-gnome-settings-gnome-next'
-            'manjaro-gnome-assets')
+  conflicts=(
+    'manjaro-gnome-settings-gnome-next'
+    'manjaro-gnome-settings-19.0'
+    'manjaro-gnome-assets'
+    'manjaro-gdm-theme'
+    'firefox-gnome-theme-maia'
+    'adwaita-maia'
+  )
+  replaces=(
+    'manjaro-gnome-settings-gnome-next'
+    'manjaro-gnome-assets'
+  )
   backup=('etc/profile.d/qt-theming.sh')
   install='settings.install'
 
@@ -83,8 +100,13 @@ package_manjaro-gnome-settings() {
 
 package_manjaro-gnome-extension-settings() {
   pkgdesc="Manjaro Linux GNOME extensions settings"
-  depends=('gnome-shell-extensions' 'manjaro-gnome-settings')
-  optdepends=('gnome-browser-connector: browser connecter for extensions website')
+  depends=(
+    'gnome-shell-extensions'
+    'manjaro-gnome-settings'
+  )
+  optdepends=(
+    'gnome-browser-connector: browser connecter for extensions website'
+  )
   conflicts=('manjaro-gnome-extension-settings-gnome-next')
   replaces=('manjaro-gnome-extension-settings-gnome-next')
   install=schemas.install
@@ -109,7 +131,10 @@ package_manjaro-gnome-extension-settings() {
 
 package_manjaro-gdm-branding() {
   pkgdesc="Manjaro GDM branding"
-  depends=('gnome-shell' 'dconf')
+  depends=(
+    'gnome-shell'
+    'dconf'
+  )
 
   cd "${pkgbase}"
   install -Dm644 dconf/10_manjaro-gdm-branding -t "${pkgdir}"/etc/dconf/db/gdm.d/

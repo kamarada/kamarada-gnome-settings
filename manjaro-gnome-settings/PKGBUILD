@@ -40,7 +40,6 @@ package_manjaro-gnome-settings() {
     'bibata-cursor-theme'
     'manjaro-gnome-backgrounds'
     'manjaro-base-skel'
-    'manjaro-gdm-branding'
     'papirus-icon-theme'
     'ttf-hack'
   )

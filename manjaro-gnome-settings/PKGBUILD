@@ -5,7 +5,6 @@
 pkgname=(
   'manjaro-gnome-settings'
   'manjaro-gnome-extension-settings'
-  'manjaro-gdm-branding'
 )
 pkgbase=manjaro-gnome-settings
 pkgver=20240510
@@ -19,8 +18,6 @@ source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-sett
         'git+https://gitlab.manjaro.org/artwork/branding/logo.git'
         'manjaro-gnome-messages.hook'
         'manjaro-gnome-messages.script'
-        'manjaro-gdm-branding-install.hook'
-        'manjaro-gdm-branding-remove.hook'
         'watermark.png')
 sha256sums=('SKIP'
             'SKIP'
@@ -62,10 +59,12 @@ package_manjaro-gnome-settings() {
     'manjaro-gdm-theme'
     'firefox-gnome-theme-maia'
     'adwaita-maia'
+    'manjaro-gdm-branding'
   )
   replaces=(
     'manjaro-gnome-settings-gnome-next'
     'manjaro-gnome-assets'
+    'manjaro-gdm-branding'
   )
   install='settings.install'
 
@@ -91,6 +90,10 @@ package_manjaro-gnome-settings() {
 
   # Misc defaults
   cp -r profile.d skel "${pkgdir}"/etc/
+
+  # GDM branding  ## TODO add to manjaro-icons package
+  install -Dm644 ${srcdir}/watermark.png -t \
+    "${pkgdir}"/usr/share/icons/manjaro/white/
 
   # Qt5Ct (not currently used)
 #  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t "${pkgdir}"/usr/share/qt5ct/colors/
@@ -126,24 +129,6 @@ package_manjaro-gnome-extension-settings() {
   for schema in ${schemas[*]}; do
     install -Dm644 schemas/${schema}.gschema.override -t "${pkgdir}"/usr/share/glib-2.0/schemas/
   done
-}
-
-package_manjaro-gdm-branding() {
-  pkgdesc="Manjaro GDM branding"
-  depends=(
-    'gnome-shell'
-    'dconf'
-  )
-
-  cd "${pkgbase}"
-  install -Dm644 dconf/10_manjaro-gdm-branding -t "${pkgdir}"/etc/dconf/db/gdm.d/
-
-  install -Dm644 ${srcdir}/watermark.png -t \
-    "${pkgdir}"/usr/share/icons/manjaro/white/
-  install -Dm644 ${srcdir}/manjaro-gdm-branding-install.hook -t \
-    "${pkgdir}"/usr/share/libalpm/hooks/
-  install -Dm644 ${srcdir}/manjaro-gdm-branding-remove.hook -t \
-    "${pkgdir}"/usr/share/libalpm/hooks/
 }
 
 #package_manjaro-gnome-minimal-settings() {

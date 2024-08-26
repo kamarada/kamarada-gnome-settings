@@ -1,31 +1,28 @@
 # Maintainer: Mark Wagie <mark at manjaro dot org>
-# Maintainer: Stefano Capitani  <stefanoatmanjarodotorg>
-# Contributor: Ramon Buldó <rbuldo@gmail.com>
+# Contributor: Stefano Capitani  <stefanoatmanjarodotorg>
+# Contributor: Ramon Buldó
 
 pkgname=(
   'manjaro-gnome-settings'
   'manjaro-gnome-extension-settings'
 )
 pkgbase=manjaro-gnome-settings
-pkgver=20240812
+pkgver=20240826
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=41a99cbc2d79ea96cfaecf5aa81f68b56b40f0c4  # branch/master
-source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=$_commit?signed"
-        'git+https://gitlab.manjaro.org/artwork/branding/logo.git'
+_commit=7ac8ddee6d93cf1e904dcfaba447bc4b47d425c9  # branch/master
+source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=${_commit}?signed"
         'manjaro-gnome-messages.hook'
         'manjaro-gnome-messages.script'
         'watermark.png')
-sha256sums=('65f1b102d990cb6944dca1f5bdd9d9a7eaab0c6a0c2988a9e62d9e1c2d8c89a5'
-            'SKIP'
+sha256sums=('ba1cccec221a6ac11b14b9ba6a2337196dfc98ead278d4aff012c5cb58a49007'
             '588f024527bcc54ecb6d6f5d1c6c4879c400ec37cacabd2547540aadf0e0bda7'
             'ceea984ca8eeacc08d676f8804edd5ab0770725e00f82ffb4fcee7381c07feba'
             '31032e888cc8402907e2ef24f95959b9fa0f3547bb076b9fe4700aab79556739')
-validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8' # Mark Wagie <mark@manjaro.org>
-              '22C903DE964E6FE321656E318DB9F8C18DF53602') # Stefano Capitani <stefano@manjaro.org>
+validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
 
 pkgver() {
   date +%Y%m%d
@@ -93,8 +90,10 @@ package_manjaro-gnome-settings() {
     "${pkgdir}"/usr/share/icons/manjaro/white/
 
   # Qt5Ct (not currently used)
-#  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t "${pkgdir}"/usr/share/qt5ct/colors/
-#  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t "${pkgdir}"/usr/share/qt6ct/colors/
+#  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t \
+#    "${pkgdir}"/usr/share/qt5ct/colors/
+#  install -Dm644 colors/Adwaita{-maia.conf,-maia-dark.conf} -t \
+#    "${pkgdir}"/usr/share/qt6ct/colors/
 }
 
 package_manjaro-gnome-extension-settings() {
@@ -119,12 +118,12 @@ package_manjaro-gnome-extension-settings() {
     org.gnome.shell.extensions.custom-accent-colors  # Custom Accent Colors
     org.gnome.shell.extensions.dash-to-dock  # Dash to Dock
     org.gnome.shell.extensions.gnome-ui-tune  # GNOME 4x UI Improvements
-    org.gnome.shell.extensions.nightthemeswitcher  # Night Theme Switcher
     org.gnome.shell.extensions.user-theme  # User Themes
   )
 
   for schema in ${schemas[*]}; do
-    install -Dm644 schemas/${schema}.gschema.override -t "${pkgdir}"/usr/share/glib-2.0/schemas/
+    install -Dm644 schemas/${schema}.gschema.override -t \
+      "${pkgdir}"/usr/share/glib-2.0/schemas/
   done
 }
 

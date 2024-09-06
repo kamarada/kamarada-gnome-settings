@@ -23,7 +23,8 @@ sha256sums=('f08e547c9a7749a2c5d0e9ae422e489aa9f589b44450accad17f3028299bbfca'
 validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
 
 pkgver() {
-  date +%Y%m%d
+  cd "${pkgbase}"
+  git show -s --format=%cd --date=format:%Y%m%d HEAD
 }
 
 package_manjaro-gnome-settings() {

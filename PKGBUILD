@@ -7,17 +7,17 @@ pkgname=(
   'manjaro-gnome-extension-settings'
 )
 pkgbase=manjaro-gnome-settings
-pkgver=20240906
+pkgver=20240907
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=f9881f2b2d521a25c04abeff2484fbded4a06d4e  # branch/master
+_commit=d54d5796bda2c97c7c527457c89b8098f51dd9af  # branch/master
 source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=${_commit}?signed"
         'manjaro-gnome-messages.hook'
         'manjaro-gnome-messages.script')
-sha256sums=('f08e547c9a7749a2c5d0e9ae422e489aa9f589b44450accad17f3028299bbfca'
+sha256sums=('e809f9bced4f94195bfd525919fb10b8db9ab8c6d0a022e5ad3d9bb3839ba15d'
             '588f024527bcc54ecb6d6f5d1c6c4879c400ec37cacabd2547540aadf0e0bda7'
             'ceea984ca8eeacc08d676f8804edd5ab0770725e00f82ffb4fcee7381c07feba')
 validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>

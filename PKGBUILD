@@ -7,19 +7,15 @@ pkgname=(
   'manjaro-gnome-extension-settings'
 )
 pkgbase=manjaro-gnome-settings
-pkgver=20240919
-pkgrel=2
+pkgver=20240920
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=253037b6a9661806b162067fe721c4caa2ec84e4  # branch/master
-source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=${_commit}?signed"
-        'manjaro-gnome-messages.hook'
-        'manjaro-gnome-messages.script')
-sha256sums=('e12a610ec16d348574f0733f0f297db9aeaa2b39f8c00393717ae5284b524a14'
-            '588f024527bcc54ecb6d6f5d1c6c4879c400ec37cacabd2547540aadf0e0bda7'
-            'ceea984ca8eeacc08d676f8804edd5ab0770725e00f82ffb4fcee7381c07feba')
+_commit=95611ee6991666e8b642801696ab75163ed1e145  # branch/master
+source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=${_commit}?signed")
+sha256sums=('0a299f3fed8aba40f5f013ab78b2a8433ad732acbe679d100f5c2920d52e311f')
 validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
 
 pkgver() {
@@ -69,11 +65,6 @@ package_manjaro-gnome-settings() {
   install -Dm644 dconf/gdm -t "${pkgdir}"/etc/dconf/profile/
   install -Dm644 dconf/00_app_folder_defaults -t "${pkgdir}"/etc/dconf/db/local.d/
 
-  install -Dm644 ${srcdir}/manjaro-gnome-messages.hook -t \
-    "${pkgdir}"/usr/share/libalpm/hooks/
-  install -Dm755 ${srcdir}/manjaro-gnome-messages.script \
-    "${pkgdir}"/usr/share/libalpm/scripts/manjaro-gnome-messages
-
   # Kvantum
   install -Dm644 xdg/Kvantum/kvantum.kvconfig -t "${pkgdir}/etc/xdg/Kvantum/"
 
@@ -100,8 +91,13 @@ package_manjaro-gnome-extension-settings() {
   optdepends=(
     'gnome-browser-connector: browser connecter for extensions website'
   )
-  conflicts=('manjaro-gnome-extension-settings-gnome-next')
-  replaces=('manjaro-gnome-extension-settings-gnome-next')
+  conflicts=(
+    'gnome-shell-extension-custom-accent-colors'
+    'manjaro-gnome-extension-settings-gnome-next'
+  )
+  replaces=(
+    'manjaro-gnome-extension-settings-gnome-next'
+  )
   install=schemas.install
 
   cd "${pkgbase}"
@@ -110,10 +106,8 @@ package_manjaro-gnome-extension-settings() {
 
   schemas=(
     org.gnome.shell.extensions.arcmenu  # ArcMenu
-    org.gnome.shell.extensions.custom-accent-colors  # Custom Accent Colors
     org.gnome.shell.extensions.dash-to-dock  # Dash to Dock
     org.gnome.shell.extensions.gnome-ui-tune  # GNOME 4x UI Improvements
-    org.gnome.shell.extensions.user-theme  # User Themes
   )
 
   for schema in ${schemas[*]}; do

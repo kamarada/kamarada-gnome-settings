@@ -8,14 +8,14 @@ pkgname=(
 )
 pkgbase=manjaro-gnome-settings
 pkgver=20240920
-pkgrel=1
+pkgrel=2
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=95611ee6991666e8b642801696ab75163ed1e145  # branch/master
+_commit=bee5c959f5996c55e82cbf3185b32f04eb947ff0  # branch/master
 source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=${_commit}?signed")
-sha256sums=('0a299f3fed8aba40f5f013ab78b2a8433ad732acbe679d100f5c2920d52e311f')
+sha256sums=('9b7a5210242937a6cd0506d904ef60e14f3f2b3c36a23dd35ec2140488af7729')
 validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
 
 pkgver() {
@@ -108,6 +108,7 @@ package_manjaro-gnome-extension-settings() {
     org.gnome.shell.extensions.arcmenu  # ArcMenu
     org.gnome.shell.extensions.dash-to-dock  # Dash to Dock
     org.gnome.shell.extensions.gnome-ui-tune  # GNOME 4x UI Improvements
+    org.gnome.shell.extensions.user-theme  # User Themes
   )
 
   for schema in ${schemas[*]}; do

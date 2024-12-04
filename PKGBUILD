@@ -8,7 +8,7 @@ pkgname=(
 )
 pkgbase=manjaro-gnome-settings
 pkgver=20241204
-pkgrel=1
+pkgrel=2
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL-3.0-or-later')

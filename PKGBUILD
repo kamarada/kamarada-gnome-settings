@@ -7,15 +7,15 @@ pkgname=(
   'manjaro-gnome-extension-settings'
 )
 pkgbase=manjaro-gnome-settings
-pkgver=20240920
-pkgrel=2
+pkgver=20241204
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=bee5c959f5996c55e82cbf3185b32f04eb947ff0  # branch/master
+_commit=8c48ff5962b6b3a0920443dc43201f7a016292e5  # branch/master
 source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=${_commit}?signed")
-sha256sums=('9b7a5210242937a6cd0506d904ef60e14f3f2b3c36a23dd35ec2140488af7729')
+sha256sums=('1292193229ae835dacfb202ac18bfde5792ca7751969b33b8bd3891848d7ba25')
 validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
 
 pkgver() {
@@ -26,6 +26,7 @@ pkgver() {
 package_manjaro-gnome-settings() {
   pkgdesc="Manjaro Linux GNOME settings"
   depends=(
+    'accent-color-change'
     'adw-gtk-theme'
     'bibata-cursor-theme'
     'manjaro-gnome-backgrounds'

@@ -7,15 +7,15 @@ pkgname=(
   'manjaro-gnome-extension-settings'
 )
 pkgbase=manjaro-gnome-settings
-pkgver=20241204
-pkgrel=2
+pkgver=20250311
+pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=8c48ff5962b6b3a0920443dc43201f7a016292e5  # branch/master
+_commit=e0cc99f105b311919fb5f1ae37d94b026dc09093  # branch/master
 source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=${_commit}?signed")
-sha256sums=('1292193229ae835dacfb202ac18bfde5792ca7751969b33b8bd3891848d7ba25')
+sha256sums=('3cc6edf13b07d056260f7c1a171c5bcdcd2f41ea6da2afcef346b80f4916d3dc')
 validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
 
 pkgver() {
@@ -108,6 +108,7 @@ package_manjaro-gnome-extension-settings() {
   schemas=(
     org.gnome.shell.extensions.arcmenu  # ArcMenu
     org.gnome.shell.extensions.dash-to-dock  # Dash to Dock
+    org.gnome.shell.extensions.dash-to-panel  # Dash to Panel
     org.gnome.shell.extensions.gnome-ui-tune  # GNOME 4x UI Improvements
     org.gnome.shell.extensions.user-theme  # User Themes
   )

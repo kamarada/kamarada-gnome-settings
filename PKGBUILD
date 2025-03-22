@@ -31,13 +31,12 @@ package_manjaro-gnome-settings() {
     'bibata-cursor-theme'
     'manjaro-gnome-backgrounds'
     'manjaro-base-skel'
-    'papirus-icon-theme'
-    'ttf-hack'
+    'papirus-maia-icon-theme'
+    'ttf-hack-nerd'
   )
   optdepends=(
     'kvantum-manjaro: for KvLibadwaitaMaia theme'
     'lighter-gnome: disable some gnome-settings-daemon components'
-    'papirus-maia-icon-theme: for Maia folder color'
     'qt5ct: Qt 5 theming'
     'qt6ct: Qt 6 theming'
   )

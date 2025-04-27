@@ -7,15 +7,15 @@ pkgname=(
   'manjaro-gnome-extension-settings'
 )
 pkgbase=manjaro-gnome-settings
-pkgver=20250322
+pkgver=20250427
 pkgrel=1
 arch=('any')
 url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=8522a097440a090656a89188d313cf764019f267
+_commit=cde31d6ef066b31bb5cbaa7c3a7e0710dedf669e
 source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=${_commit}?signed")
-sha256sums=('1652ea1cef57146c579d1e11ea48d6f33b612a557e2f12f35754d58d7d8fc4d1')
+sha256sums=('606a01e4a74beeed891bde7d929f0f35fe44cee1c9c5400648f4bb3b646dee5b')
 validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
 
 pkgver() {
@@ -33,10 +33,10 @@ package_manjaro-gnome-settings() {
     'manjaro-base-skel'
     'papirus-maia-icon-theme'
     'ttf-hack-nerd'
+    'ttf-meslo-nerd-font-powerlevel10k'
   )
   optdepends=(
     'kvantum-manjaro: for KvLibadwaitaMaia theme'
-    'lighter-gnome: disable some gnome-settings-daemon components'
     'qt5ct: Qt 5 theming'
     'qt6ct: Qt 6 theming'
   )

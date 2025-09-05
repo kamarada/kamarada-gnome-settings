@@ -1,35 +1,36 @@
-# Maintainer: Mark Wagie <mark at manjaro dot org>
+# Maintainer: Antonio Medeiros <linuxkamarada@gmail.com>
+# Contributor: Mark Wagie <mark at manjaro dot org>
 # Contributor: Stefano Capitani  <stefanoatmanjarodotorg>
 # Contributor: Ramon Buldó
 
 pkgname=(
-  'manjaro-gnome-settings'
-  'manjaro-gnome-extension-settings'
+  'kamarada-gnome-settings'
+  'kamarada-gnome-extension-settings'
 )
-pkgbase=manjaro-gnome-settings
+pkgbase=kamarada-gnome-settings-src
 pkgver=20250504
 pkgrel=1
 arch=('any')
-url="https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings"
+url="https://github.com/kamarada/kamarada-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
 _commit=1fabeca59a200f1b801a2fff1ded2d791231d004
-source=("git+https://gitlab.manjaro.org/profiles-and-settings/manjaro-gnome-settings.git#commit=${_commit}?signed")
-sha256sums=('e716952e5b7d413239e0d8b73765fbebc9014deb3cf1b2d1f95f87d8632f79df')
-validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
+source=("git+https://github.com/kamarada/kamarada-gnome-settings-src.git#commit=${_commit}")
+sha256sums=('SKIP')
+#validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
 
 pkgver() {
   cd "${pkgbase}"
   git show -s --format=%cd --date=format:%Y%m%d HEAD
 }
 
-package_manjaro-gnome-settings() {
-  pkgdesc="Manjaro Linux GNOME settings"
+package_kamarada-gnome-settings() {
+  pkgdesc="Linux Kamarada GNOME settings"
   depends=(
     'accent-color-change'
     'adw-gtk-theme'
     'bibata-cursor-theme'
-    'manjaro-gnome-backgrounds'
+    'kamarada-gnome-backgrounds'
     'manjaro-base-skel'
     'papirus-maia-icon-theme'
     'ttf-hack-nerd'
@@ -40,7 +41,10 @@ package_manjaro-gnome-settings() {
     'qt5ct: Qt 5 theming'
     'qt6ct: Qt 6 theming'
   )
-  provides=('manjaro-desktop-settings')
+  provides=(
+    'manjaro-desktop-settings'
+    'manjaro-gnome-settings'
+  )
   conflicts=(
     'manjaro-gnome-settings-gnome-next'
     'manjaro-gnome-settings-19.0'
@@ -49,11 +53,13 @@ package_manjaro-gnome-settings() {
     'firefox-gnome-theme-maia'
     'adwaita-maia'
     'manjaro-gdm-branding'
+    'manjaro-gnome-settings'
   )
   replaces=(
     'manjaro-gnome-settings-gnome-next'
     'manjaro-gnome-assets'
     'manjaro-gdm-branding'
+    'manjaro-gnome-settings'
   )
   install='settings.install'
 
@@ -82,21 +88,26 @@ package_manjaro-gnome-settings() {
 #    "${pkgdir}"/usr/share/qt6ct/colors/
 }
 
-package_manjaro-gnome-extension-settings() {
-  pkgdesc="Manjaro Linux GNOME extensions settings"
+package_kamarada-gnome-extension-settings() {
+  pkgdesc="Linux Kamarada GNOME extensions settings"
   depends=(
     'gnome-shell-extensions'
-    'manjaro-gnome-settings'
+    'kamarada-gnome-settings'
   )
   optdepends=(
     'gnome-browser-connector: browser connecter for extensions website'
   )
+  provides=(
+    'manjaro-gnome-extension-settings'
+  )
   conflicts=(
     'gnome-shell-extension-custom-accent-colors'
     'manjaro-gnome-extension-settings-gnome-next'
+    'manjaro-gnome-extension-settings'
   )
   replaces=(
     'manjaro-gnome-extension-settings-gnome-next'
+    'manjaro-gnome-extension-settings'
   )
   install=schemas.install
 

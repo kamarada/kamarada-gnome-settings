@@ -33,6 +33,7 @@ package_kamarada-gnome-settings() {
     'kamarada-gnome-backgrounds'
     'manjaro-base-skel'
     'orchis-theme-git'
+    'paper-icon-theme'
     'papirus-maia-icon-theme'
     'ttf-hack-nerd'
     'ttf-meslo-nerd-font-powerlevel10k'

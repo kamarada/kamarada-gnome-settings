@@ -28,10 +28,11 @@ package_kamarada-gnome-settings() {
   pkgdesc="Linux Kamarada GNOME settings"
   depends=(
     'accent-color-change'
-    'adw-gtk-theme'
+    'adw-gtk-theme' # TODO is it really necessary?
     'bibata-cursor-theme'
     'kamarada-gnome-backgrounds'
     'manjaro-base-skel'
+    'orchis-theme-git'
     'papirus-maia-icon-theme'
     'ttf-hack-nerd'
     'ttf-meslo-nerd-font-powerlevel10k'

@@ -8,13 +8,13 @@ pkgname=(
   'kamarada-gnome-extension-settings'
 )
 pkgbase=kamarada-gnome-settings-src
-pkgver=20250504
+pkgver=20250905
 pkgrel=1
 arch=('any')
 url="https://github.com/kamarada/kamarada-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=1fabeca59a200f1b801a2fff1ded2d791231d004
+_commit=c69d233a1aeab3eaf48b371d1606a275af7bfbba
 source=("git+https://github.com/kamarada/kamarada-gnome-settings-src.git#commit=${_commit}")
 sha256sums=('SKIP')
 #validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
@@ -67,7 +67,7 @@ package_kamarada-gnome-settings() {
   install='settings.install'
 
   cd "${pkgbase}"
-  install -Dm644 schemas/99_manjaro-settings.gschema.override -t \
+  install -Dm644 schemas/99_kamarada-settings.gschema.override -t \
     "${pkgdir}"/usr/share/glib-2.0/schemas/
 
   install -Dm644 dconf/user -t "${pkgdir}"/etc/dconf/profile/

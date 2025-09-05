@@ -32,6 +32,7 @@ package_kamarada-gnome-settings() {
     'bibata-cursor-theme'
     'kamarada-gnome-backgrounds'
     'manjaro-base-skel'
+    'materia-sound-theme'
     'orchis-theme-git'
     'paper-icon-theme'
     'papirus-maia-icon-theme'

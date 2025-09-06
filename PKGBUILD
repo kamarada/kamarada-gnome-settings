@@ -9,12 +9,12 @@ pkgname=(
 )
 pkgbase=kamarada-gnome-settings-src
 pkgver=20250905
-pkgrel=1
+pkgrel=2
 arch=('any')
 url="https://github.com/kamarada/kamarada-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=c69d233a1aeab3eaf48b371d1606a275af7bfbba
+_commit=82cf72eca2b176c66d45b98ef86e29ba4f4615cb
 source=("git+https://github.com/kamarada/kamarada-gnome-settings-src.git#commit=${_commit}")
 sha256sums=('SKIP')
 #validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
@@ -95,6 +95,7 @@ package_kamarada-gnome-extension-settings() {
   pkgdesc="Linux Kamarada GNOME extensions settings"
   depends=(
     'gnome-shell-extensions'
+    'gnome-shell-extension-dash-to-dock'
     'kamarada-gnome-settings'
   )
   optdepends=(

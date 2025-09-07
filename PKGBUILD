@@ -8,13 +8,13 @@ pkgname=(
   'kamarada-gnome-extension-settings'
 )
 pkgbase=kamarada-gnome-settings-src
-pkgver=20250905
-pkgrel=2
+pkgver=20250907
+pkgrel=1
 arch=('any')
 url="https://github.com/kamarada/kamarada-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=82cf72eca2b176c66d45b98ef86e29ba4f4615cb
+_commit=d9e69628f63d39337a57acf5d92176f1da1ab2a8
 source=("git+https://github.com/kamarada/kamarada-gnome-settings-src.git#commit=${_commit}")
 sha256sums=('SKIP')
 #validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
@@ -35,7 +35,7 @@ package_kamarada-gnome-settings() {
     'materia-sound-theme'
     'orchis-theme-git'
     'paper-icon-theme'
-    'papirus-maia-icon-theme'
+    'papirus-icon-theme-kamarada'
     'ttf-hack-nerd'
     'ttf-meslo-nerd-font-powerlevel10k'
   )
@@ -96,6 +96,8 @@ package_kamarada-gnome-extension-settings() {
   depends=(
     'gnome-shell-extensions'
     'gnome-shell-extension-dash-to-dock'
+    'gnome-shell-extension-gsconnect'
+    'gnome-shell-extension-lockkeys'
     'kamarada-gnome-settings'
   )
   optdepends=(

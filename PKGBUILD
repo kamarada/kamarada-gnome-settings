@@ -9,7 +9,7 @@ pkgname=(
 )
 pkgbase=kamarada-gnome-settings-src
 pkgver=20250907
-pkgrel=1
+pkgrel=2
 arch=('any')
 url="https://github.com/kamarada/kamarada-gnome-settings"
 license=('GPL-3.0-or-later')

@@ -9,7 +9,7 @@ pkgname=(
 )
 pkgbase=kamarada-gnome-settings-src
 pkgver=20250907
-pkgrel=2
+pkgrel=3
 arch=('any')
 url="https://github.com/kamarada/kamarada-gnome-settings"
 license=('GPL-3.0-or-later')
@@ -126,6 +126,8 @@ package_kamarada-gnome-extension-settings() {
     org.gnome.shell.extensions.dash-to-dock  # Dash to Dock
     org.gnome.shell.extensions.dash-to-panel  # Dash to Panel
     org.gnome.shell.extensions.gnome-ui-tune  # GNOME 4x UI Improvements
+    org.gnome.shell.extensions.gsconnect # GSConnect
+    org.gnome.shell.extensions.lockkeys # Lock Keys
     org.gnome.shell.extensions.user-theme  # User Themes
   )
 

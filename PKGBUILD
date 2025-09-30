@@ -8,13 +8,13 @@ pkgname=(
   'kamarada-gnome-extension-settings'
 )
 pkgbase=kamarada-gnome-settings-src
-pkgver=20250907
-pkgrel=3
+pkgver=20250930
+pkgrel=1
 arch=('any')
 url="https://github.com/kamarada/kamarada-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=d9e69628f63d39337a57acf5d92176f1da1ab2a8
+_commit=00c62acd0a4a6e588a5e930cd4f8b3a1ef270196
 source=("git+https://github.com/kamarada/kamarada-gnome-settings-src.git#commit=${_commit}")
 sha256sums=('SKIP')
 #validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
@@ -30,6 +30,7 @@ package_kamarada-gnome-settings() {
     'accent-color-change'
     'adw-gtk-theme' # TODO is it really necessary?
     'bibata-cursor-theme'
+    'kamarada-distribution-logos'
     'kamarada-gnome-backgrounds'
     'manjaro-base-skel'
     'materia-sound-theme'

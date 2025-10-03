@@ -8,13 +8,13 @@ pkgname=(
   'kamarada-gnome-extension-settings'
 )
 pkgbase=kamarada-gnome-settings-src
-pkgver=20250930
+pkgver=20251003
 pkgrel=1
 arch=('any')
 url="https://github.com/kamarada/kamarada-gnome-settings"
 license=('GPL-3.0-or-later')
 makedepends=('git')
-_commit=00c62acd0a4a6e588a5e930cd4f8b3a1ef270196
+_commit=19ffcd1886835bc5d8a23be22c57b3e69c0166d1
 source=("git+https://github.com/kamarada/kamarada-gnome-settings-src.git#commit=${_commit}")
 sha256sums=('SKIP')
 #validpgpkeys=('688E8F82879D0E25CE541426150C200743ED46D8') # Mark Wagie <mark@manjaro.org>
